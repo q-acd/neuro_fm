@@ -2,1693 +2,335 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#6750A4">
-    <meta name="description" content="NeuroRadio — радио с Material Design 3">
-    <title>NeuroRadio</title>
-    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiTmV1cm9SYWRpbyIsInNob3J0X25hbWUiOiJOZXVyb1JhZGlvIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwidGhlbWVfY29sb3IiOiIjNjc1MEE0IiwiYmFja2dyb3VuZF9jb2xvciI6IiM2NzUwQTQiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjR0YwYUNCa1BTSk5NVEF3SURVd1RqQWdOVEFpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjI1a1lpSWdjM1J5YjJ0bFpEMGlJekF3TURBd01DSXZQand2YzNablBnPT0iLCJzaXplcyI6IjEwMHgxMDAiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — HelloMusic</title>
+    <meta name="description" content="Политика конфиденциальности мобильного приложения HelloMusic. Мы не собираем персональные данные.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
     <style>
         :root {
-            --md-sys-color-primary: #6750A4;
-            --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #EADDFF;
-            --md-sys-color-on-primary-container: #21005D;
-            --md-sys-color-secondary: #625B71;
-            --md-sys-color-on-secondary: #FFFFFF;
-            --md-sys-color-secondary-container: #E8DEF8;
-            --md-sys-color-on-secondary-container: #1D192B;
-            --md-sys-color-surface: #FEF7FF;
-            --md-sys-color-on-surface: #1D1B20;
-            --md-sys-color-surface-variant: #E7E0EC;
-            --md-sys-color-on-surface-variant: #49454F;
-            --md-sys-color-outline: #79747E;
-            --md-sys-color-outline-variant: #CAC4D0;
-            --md-sys-color-background: #FEF7FF;
-            --md-sys-color-on-background: #1D1B20;
-            --md-sys-color-surface-container-low: #F7F2FA;
-            --md-sys-color-surface-container: #F3EDF7;
-            --md-sys-color-surface-container-high: #ECE6F0;
-            --md-sys-color-surface-container-highest: #E6E0E9;
-            --md-sys-color-error: #B3261E;
-            --md-sys-color-on-error: #FFFFFF;
-            --md-sys-color-shadow: #000000;
-            --md-sys-color-scrim: #000000;
-            --md-ref-typeface-plain: 'Roboto', sans-serif;
-            --md-ref-typeface-brand: 'Roboto', sans-serif;
-            --md-sys-elevation-1: 0 1px 3px 1px rgba(0,0,0,0.15), 0 1px 2px 0 rgba(0,0,0,0.30);
-            --md-sys-elevation-2: 0 2px 6px 2px rgba(0,0,0,0.15), 0 1px 2px 0 rgba(0,0,0,0.30);
-            --md-sys-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.30);
-            --md-sys-elevation-4: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px 0 rgba(0,0,0,0.30);
-            --md-sys-elevation-5: 0 8px 12px 6px rgba(0,0,0,0.15), 0 4px 4px 0 rgba(0,0,0,0.30);
-            --md-sys-shape-corner-extra-small: 4px;
-            --md-sys-shape-corner-small: 8px;
-            --md-sys-shape-corner-medium: 12px;
-            --md-sys-shape-corner-large: 16px;
-            --md-sys-shape-corner-extra-large: 28px;
-            --md-sys-shape-corner-full: 9999px;
-            --md-sys-motion-duration-short: 100ms;
-            --md-sys-motion-duration-medium: 250ms;
-            --md-sys-motion-duration-long: 500ms;
-            --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-            --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+            --accent: #E67E22;
+            --bg: #FAFAFA;
+            --surface: #FFFFFF;
+            --text: #1A1A1A;
+            --text-dim: #666;
+            --border: #E5E5E5;
         }
-
-        [data-theme="dark"] {
-            --md-sys-color-primary: #D0BCFF;
-            --md-sys-color-on-primary: #381E72;
-            --md-sys-color-primary-container: #4F378B;
-            --md-sys-color-on-primary-container: #EADDFF;
-            --md-sys-color-secondary: #CCC2DC;
-            --md-sys-color-on-secondary: #332D41;
-            --md-sys-color-secondary-container: #4A4458;
-            --md-sys-color-on-secondary-container: #E8DEF8;
-            --md-sys-color-surface: #141218;
-            --md-sys-color-on-surface: #E6E0E9;
-            --md-sys-color-surface-variant: #49454F;
-            --md-sys-color-on-surface-variant: #CAC4D0;
-            --md-sys-color-outline: #938F99;
-            --md-sys-color-outline-variant: #49454F;
-            --md-sys-color-background: #141218;
-            --md-sys-color-on-background: #E6E0E9;
-            --md-sys-color-surface-container-low: #1D1B20;
-            --md-sys-color-surface-container: #211F26;
-            --md-sys-color-surface-container-high: #2B2930;
-            --md-sys-color-surface-container-highest: #36343B;
-            --md-sys-color-error: #F2B8B5;
-            --md-sys-color-on-error: #601410;
-            --md-sys-color-shadow: #000000;
-            --md-sys-color-scrim: #000000;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --surface: #1E1E1E;
+                --text: #E6E6E6;
+                --text-dim: #A0A0A0;
+                --border: #2A2A2A;
+            }
         }
-
-        [data-accent="purple"] { --md-sys-color-primary: #6750A4; --md-sys-color-primary-container: #EADDFF; --md-sys-color-on-primary-container: #21005D; --md-sys-color-secondary: #625B71; --md-sys-color-secondary-container: #E8DEF8; --md-sys-color-on-secondary-container: #1D192B; }
-        [data-theme="dark"][data-accent="purple"] { --md-sys-color-primary: #D0BCFF; --md-sys-color-on-primary: #381E72; --md-sys-color-primary-container: #4F378B; --md-sys-color-on-primary-container: #EADDFF; --md-sys-color-secondary: #CCC2DC; --md-sys-color-secondary-container: #4A4458; --md-sys-color-on-secondary-container: #E8DEF8; }
-
-        [data-accent="blue"] { --md-sys-color-primary: #0B57D0; --md-sys-color-primary-container: #D3E3FD; --md-sys-color-on-primary-container: #041E49; --md-sys-color-secondary: #565E71; --md-sys-color-secondary-container: #DAE2F9; --md-sys-color-on-secondary-container: #131C2B; }
-        [data-theme="dark"][data-accent="blue"] { --md-sys-color-primary: #A8C7FA; --md-sys-color-on-primary: #062E6F; --md-sys-color-primary-container: #0842A0; --md-sys-color-on-primary-container: #D3E3FD; --md-sys-color-secondary: #BEC6DC; --md-sys-color-secondary-container: #3E4759; --md-sys-color-on-secondary-container: #DAE2F9; }
-
-        [data-accent="green"] { --md-sys-color-primary: #146C2E; --md-sys-color-primary-container: #C4EED0; --md-sys-color-on-primary-container: #072711; --md-sys-color-secondary: #52634F; --md-sys-color-secondary-container: #D5E8CF; --md-sys-color-on-secondary-container: #101F10; }
-        [data-theme="dark"][data-accent="green"] { --md-sys-color-primary: #8FD99C; --md-sys-color-on-primary: #003916; --md-sys-color-primary-container: #005321; --md-sys-color-on-primary-container: #C4EED0; --md-sys-color-secondary: #B9CCB4; --md-sys-color-secondary-container: #3B4B39; --md-sys-color-on-secondary-container: #D5E8CF; }
-
-        [data-accent="orange"] { --md-sys-color-primary: #8B5000; --md-sys-color-primary-container: #FFDDB8; --md-sys-color-on-primary-container: #2E1500; --md-sys-color-secondary: #6D5D48; --md-sys-color-secondary-container: #F6DFC6; --md-sys-color-on-secondary-container: #261A0B; }
-        [data-theme="dark"][data-accent="orange"] { --md-sys-color-primary: #FFB86C; --md-sys-color-on-primary: #4A2800; --md-sys-color-primary-container: #6B3C00; --md-sys-color-on-primary-container: #FFDDB8; --md-sys-color-secondary: #D9C2A7; --md-sys-color-secondary-container: #54442F; --md-sys-color-on-secondary-container: #F6DFC6; }
-
-        [data-accent="red"] { --md-sys-color-primary: #B3261E; --md-sys-color-primary-container: #F9DEDC; --md-sys-color-on-primary-container: #410E0B; --md-sys-color-secondary: #775652; --md-sys-color-secondary-container: #FFDAD6; --md-sys-color-on-secondary-container: #2C1512; }
-        [data-theme="dark"][data-accent="red"] { --md-sys-color-primary: #F2B8B5; --md-sys-color-on-primary: #601410; --md-sys-color-primary-container: #8C1D18; --md-sys-color-on-primary-container: #F9DEDC; --md-sys-color-secondary: #E7BDB8; --md-sys-color-secondary-container: #5D3F3C; --md-sys-color-on-secondary-container: #FFDAD6; }
-
-        [data-accent="teal"] { --md-sys-color-primary: #006A6A; --md-sys-color-primary-container: #9EF2F2; --md-sys-color-on-primary-container: #002020; --md-sys-color-secondary: #4A6363; --md-sys-color-secondary-container: #CCE8E7; --md-sys-color-on-secondary-container: #051F1F; }
-        [data-theme="dark"][data-accent="teal"] { --md-sys-color-primary: #82D5D5; --md-sys-color-on-primary: #003737; --md-sys-color-primary-container: #004F4F; --md-sys-color-on-primary-container: #9EF2F2; --md-sys-color-secondary: #B0CCCC; --md-sys-color-secondary-container: #334B4B; --md-sys-color-on-secondary-container: #CCE8E7; }
-
-        [data-accent="pink"] { --md-sys-color-primary: #9A4059; --md-sys-color-primary-container: #FFD9E1; --md-sys-color-on-primary-container: #3E001D; --md-sys-color-secondary: #74565E; --md-sys-color-secondary-container: #FFD9E1; --md-sys-color-on-secondary-container: #2B151B; }
-        [data-theme="dark"][data-accent="pink"] { --md-sys-color-primary: #FFB1C5; --md-sys-color-on-primary: #5E1130; --md-sys-color-primary-container: #7B2942; --md-sys-color-on-primary-container: #FFD9E1; --md-sys-color-secondary: #E2BDC5; --md-sys-color-secondary-container: #5A3F46; --md-sys-color-on-secondary-container: #FFD9E1; }
-
-        [data-accent="yellow"] { --md-sys-color-primary: #6D5E00; --md-sys-color-primary-container: #FAE287; --md-sys-color-on-primary-container: #211B00; --md-sys-color-secondary: #665E40; --md-sys-color-secondary-container: #EEE1B9; --md-sys-color-on-secondary-container: #211B00; }
-        [data-theme="dark"][data-accent="yellow"] { --md-sys-color-primary: #DDC64B; --md-sys-color-on-primary: #393000; --md-sys-color-primary-container: #534700; --md-sys-color-on-primary-container: #FAE287; --md-sys-color-secondary: #D2C6A0; --md-sys-color-secondary-container: #4E462B; --md-sys-color-on-secondary-container: #EEE1B9; }
-
-        [data-accent="indigo"] { --md-sys-color-primary: #4A5C92; --md-sys-color-primary-container: #DCE1FF; --md-sys-color-on-primary-container: #00164E; --md-sys-color-secondary: #5B5D72; --md-sys-color-secondary-container: #E0E1F9; --md-sys-color-on-secondary-container: #181A2C; }
-        [data-theme="dark"][data-accent="indigo"] { --md-sys-color-primary: #B4C5FF; --md-sys-color-on-primary: #1B2C61; --md-sys-color-primary-container: #324479; --md-sys-color-on-primary-container: #DCE1FF; --md-sys-color-secondary: #C4C5DD; --md-sys-color-secondary-container: #434559; --md-sys-color-on-secondary-container: #E0E1F9; }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-        html, body {
-            height: 100%;
-            overflow: hidden;
-            font-family: var(--md-ref-typeface-plain);
-            background: var(--md-sys-color-background);
-            color: var(--md-sys-color-on-background);
-            transition: background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            user-select: none;
-            -webkit-user-select: none;
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
+            font-size: 16px;
         }
-
-        body { display: flex; flex-direction: column; height: 100dvh; width: 100vw; position: relative; }
-
-        #splash {
-            position: fixed; inset: 0; z-index: 9999;
-            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-primary-container));
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
         }
-        #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        #splash .splash-icon {
-            font-size: 96px; color: var(--md-sys-color-on-primary);
-            animation: pulse 1.5s infinite ease-in-out;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        header {
+            text-align: center;
+            margin-bottom: 48px;
         }
-        #splash .splash-title {
-            margin-top: 16px; font-size: 32px; font-weight: 700;
-            color: var(--md-sys-color-on-primary); letter-spacing: 2px;
-            animation: fadeInUp 0.8s ease;
+        .logo {
+            display: inline-block;
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #E67E22, #C0392B);
+            color: #fff;
+            font-size: 40px;
+            line-height: 72px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3);
         }
-        #splash .splash-sub {
-            margin-top: 8px; font-size: 14px;
-            color: var(--md-sys-color-on-primary); opacity: 0.9;
-            animation: fadeInUp 0.8s 0.2s both;
+        h1 {
+            font-size: 28px;
+            margin: 0 0 8px;
+            font-weight: 700;
         }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        .top-bar {
-            display: flex; align-items: center; height: 64px; padding: 0 4px;
-            background: var(--md-sys-color-surface); color: var(--md-sys-color-on-surface);
-            transition: background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            flex-shrink: 0; z-index: 100; box-shadow: var(--md-sys-elevation-1);
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 15px;
+            margin: 0;
         }
-        .top-bar .icon-btn {
-            width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent; color: var(--md-sys-color-on-surface-variant);
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            flex-shrink: 0; font-size: 24px;
-        }
-        .top-bar .icon-btn:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .top-bar .icon-btn:hover { background: rgba(255,255,255,0.08); }
-        .top-bar .icon-btn:active { background: rgba(0,0,0,0.12); }
-        [data-theme="dark"] .top-bar .icon-btn:active { background: rgba(255,255,255,0.12); }
-        .top-bar .title {
-            flex: 1; font-size: 20px; font-weight: 500; padding: 0 12px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            color: var(--md-sys-color-on-surface);
-        }
-        .top-bar .actions { display: flex; align-items: center; gap: 4px; padding-right: 4px; }
-        .top-bar .action-btn {
-            width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent; color: var(--md-sys-color-on-surface-variant);
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            font-size: 24px;
-        }
-        .top-bar .action-btn:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .top-bar .action-btn:hover { background: rgba(255,255,255,0.08); }
-        .top-bar .action-btn.active { color: var(--md-sys-color-primary); background: var(--md-sys-color-primary-container); }
-
-        .drawer-overlay {
-            position: fixed; inset: 0; background: var(--md-sys-color-scrim);
-            opacity: 0; visibility: hidden;
-            transition: opacity var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        visibility var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            z-index: 200;
-        }
-        .drawer-overlay.open { opacity: 0.32; visibility: visible; }
-        .drawer {
-            position: fixed; top: 0; left: 0; bottom: 0; width: 280px; max-width: 80vw;
-            background: var(--md-sys-color-surface-container-low); color: var(--md-sys-color-on-surface);
-            z-index: 300; transform: translateX(-100%);
-            transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),
-                        background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            display: flex; flex-direction: column; padding: 12px;
-            border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
-            box-shadow: var(--md-sys-elevation-2); overflow-y: auto;
-        }
-        .drawer.open { transform: translateX(0); }
-        .drawer-header {
-            padding: 16px 12px; font-size: 24px; font-weight: 700;
-            color: var(--md-sys-color-primary); display: flex; align-items: center; gap: 12px;
-        }
-        .drawer-header .material-icons-round { font-size: 32px; }
-        .drawer-item {
-            display: flex; align-items: center; gap: 12px; padding: 16px 12px;
-            border-radius: var(--md-sys-shape-corner-full); border: none; background: transparent;
-            color: var(--md-sys-color-on-surface-variant); font-size: 16px; font-weight: 500;
-            cursor: pointer;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            width: 100%; text-align: left; font-family: inherit;
-        }
-        .drawer-item:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .drawer-item:hover { background: rgba(255,255,255,0.08); }
-        .drawer-item.active { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
-        .drawer-item .material-icons-round { font-size: 24px; }
-
-        .main-content {
-            flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; padding-bottom: 96px;
-            background: var(--md-sys-color-background);
-            transition: background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .tab-page { display: none; animation: fadeIn 0.3s ease; }
-        .tab-page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-        .search-container { margin-bottom: 16px; }
-        .search-bar {
-            display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-            background: var(--md-sys-color-surface-container-high);
-            border-radius: var(--md-sys-shape-corner-full);
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        box-shadow var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .search-bar:focus-within { background: var(--md-sys-color-surface-container-highest); box-shadow: var(--md-sys-elevation-1); }
-        .search-bar .material-icons-round { color: var(--md-sys-color-on-surface-variant); font-size: 24px; }
-        .search-bar input {
-            flex: 1; border: none; outline: none; background: transparent;
-            color: var(--md-sys-color-on-surface); font-size: 16px; font-family: inherit; padding: 0;
-        }
-        .search-bar input::placeholder { color: var(--md-sys-color-on-surface-variant); opacity: 0.7; }
-        .search-bar .clear-btn {
-            width: 32px; height: 32px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent; color: var(--md-sys-color-on-surface-variant);
-            display: none; align-items: center; justify-content: center; cursor: pointer;
+        h2 {
             font-size: 20px;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+            margin: 40px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
         }
-        .search-bar .clear-btn.visible { display: flex; }
-        .search-bar .clear-btn:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .search-bar .clear-btn:hover { background: rgba(255,255,255,0.08); }
-
-        .no-results { text-align: center; padding: 48px 16px; color: var(--md-sys-color-on-surface-variant); }
-        .no-results .material-icons-round { font-size: 64px; opacity: 0.5; margin-bottom: 16px; }
-        .no-results p { font-size: 16px; }
-
-        .now-playing-banner {
-            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-primary-container));
-            color: var(--md-sys-color-on-primary);
-            border-radius: var(--md-sys-shape-corner-large);
-            padding: 16px 20px; margin-bottom: 16px;
-            display: flex; align-items: center; gap: 16px;
-            box-shadow: var(--md-sys-elevation-2); animation: fadeIn 0.4s ease;
+        h3 {
+            font-size: 16px;
+            margin: 24px 0 8px;
+            color: var(--accent);
         }
-        .now-playing-banner .banner-icon {
-            width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-full);
-            background: rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px; flex-shrink: 0; animation: pulse 2s infinite ease-in-out;
+        p, li {
+            color: var(--text);
         }
-        .now-playing-banner .banner-info { flex: 1; min-width: 0; }
-        .now-playing-banner .banner-label {
-            font-size: 12px; font-weight: 500; opacity: 0.9;
-            text-transform: uppercase; letter-spacing: 0.5px;
+        ul {
+            padding-left: 24px;
         }
-        .now-playing-banner .banner-station {
-            font-size: 20px; font-weight: 700; margin-top: 2px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        li {
+            margin-bottom: 8px;
         }
-
-        .station-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
-        .station-item {
-            display: flex; align-items: center; gap: 16px; padding: 12px 16px;
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--md-sys-shape-corner-medium);
-            cursor: pointer;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        transform var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            position: relative;
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
         }
-        .station-item:hover { background: var(--md-sys-color-surface-container-high); }
-        .station-item:active { transform: scale(0.98); }
-        .station-item.playing { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
-        .station-item .station-icon {
-            width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-full);
-            background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; flex-shrink: 0;
+        .highlight {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(192, 57, 43, 0.1));
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
-        .station-item.playing .station-icon { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
-        .station-item .station-info { flex: 1; min-width: 0; }
-        .station-item .station-name {
-            font-size: 16px; font-weight: 500;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        .highlight strong {
+            color: var(--accent);
         }
-        .station-item .station-url {
-            font-size: 12px; color: var(--md-sys-color-on-surface-variant);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
         }
-        .station-item.playing .station-url { color: var(--md-sys-color-on-primary-container); opacity: 0.8; }
-        .station-item .station-actions { display: flex; gap: 4px; flex-shrink: 0; }
-        .station-item .station-actions button {
-            width: 40px; height: 40px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent; color: var(--md-sys-color-on-surface-variant);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 20px;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+        a:hover {
+            border-bottom-style: solid;
         }
-        .station-item .station-actions button:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .station-item .station-actions button:hover { background: rgba(255,255,255,0.08); }
-        .station-item.playing .station-actions button { color: var(--md-sys-color-on-primary-container); }
-
-        .player-page {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 16px; min-height: 100%; gap: 24px; text-align: center;
+        .meta {
+            font-size: 13px;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
         }
-        .player-cover {
-            width: 280px; height: 280px;
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-primary-container));
-            color: var(--md-sys-color-on-primary);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: var(--md-sys-elevation-4);
-            transition: background var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            flex-shrink: 0; position: relative; overflow: hidden;
+        .badge {
+            display: inline-block;
+            background: rgba(46, 125, 50, 0.15);
+            color: #2E7D32;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
         }
-        .player-cover .material-icons-round {
-            font-size: 160px !important;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-            line-height: 1;
+        @media (prefers-color-scheme: dark) {
+            .badge {
+                background: rgba(76, 175, 80, 0.2);
+                color: #81C784;
+            }
         }
-        .player-cover::after {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 60%);
-            pointer-events: none;
-        }
-        .player-station-name {
-            font-size: 28px; font-weight: 700;
-            color: var(--md-sys-color-on-surface);
-            max-width: 100%; overflow: hidden; text-overflow: ellipsis;
-            white-space: nowrap; padding: 0 16px;
-        }
-        .player-status { font-size: 14px; color: var(--md-sys-color-on-surface-variant); margin-top: -16px; }
-        .player-controls {
-            display: flex; align-items: center; gap: 16px;
-            flex-wrap: wrap; justify-content: center;
-        }
-        .player-controls .control-btn {
-            width: 56px; height: 56px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-secondary-container);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 28px;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        transform var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .player-controls .control-btn:hover { background: var(--md-sys-color-surface-container-high); }
-        .player-controls .control-btn:active { transform: scale(0.95); }
-        .player-controls .play-btn {
-            width: 80px; height: 80px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 40px;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        transform var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        box-shadow var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            box-shadow: var(--md-sys-elevation-2);
-        }
-        .player-controls .play-btn:hover { box-shadow: var(--md-sys-elevation-3); }
-        .player-controls .play-btn:active { transform: scale(0.95); }
-
-        .fab {
-            position: fixed; right: 16px; bottom: 88px; width: 56px; height: 56px;
-            border-radius: var(--md-sys-shape-corner-large); border: none;
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 28px; box-shadow: var(--md-sys-elevation-3);
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        transform var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        box-shadow var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            z-index: 90;
-        }
-        .fab:hover { box-shadow: var(--md-sys-elevation-4); background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
-        .fab:active { transform: scale(0.92); }
-
-        .bottom-nav {
-            display: flex; align-items: center; justify-content: space-around;
-            height: 80px; background: var(--md-sys-color-surface-container);
-            border-top: 1px solid var(--md-sys-color-outline-variant);
-            padding: 0 16px; flex-shrink: 0; z-index: 100;
-            transition: background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-        }
-        .bottom-nav .nav-item {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 4px; padding: 8px 20px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent; color: var(--md-sys-color-on-surface-variant);
-            cursor: pointer; font-size: 12px; font-weight: 500;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-            font-family: inherit; flex: 1; max-width: 120px;
-        }
-        .bottom-nav .nav-item .material-icons-round { font-size: 24px; }
-        .bottom-nav .nav-item.active { color: var(--md-sys-color-on-secondary-container); background: var(--md-sys-color-secondary-container); }
-        .bottom-nav .nav-item.active .material-icons-round { font-variation-settings: 'FILL' 1; }
-
-        .dialog-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
-            opacity: 0; visibility: hidden;
-            transition: opacity var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        visibility var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            z-index: 500; display: flex; align-items: center; justify-content: center; padding: 24px;
-        }
-        .dialog-overlay.open { opacity: 1; visibility: visible; }
-        .dialog {
-            background: var(--md-sys-color-surface-container-high);
-            color: var(--md-sys-color-on-surface);
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            padding: 24px; width: 100%; max-width: 400px;
-            box-shadow: var(--md-sys-elevation-5);
-            transform: scale(0.9);
-            transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),
-                        background-color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            max-height: 80vh; overflow-y: auto; position: relative;
-        }
-        .dialog-overlay.open .dialog { transform: scale(1); }
-        .dialog h2 { font-size: 24px; font-weight: 500; margin-bottom: 20px; color: var(--md-sys-color-on-surface); }
-        .dialog .input-group { margin-bottom: 16px; }
-        .dialog .input-group label {
-            display: block; font-size: 12px; font-weight: 500;
-            color: var(--md-sys-color-on-surface-variant); margin-bottom: 4px;
-        }
-        .dialog .input-group input {
-            width: 100%; padding: 12px 16px;
-            border-radius: var(--md-sys-shape-corner-extra-small);
-            border: 1px solid var(--md-sys-color-outline);
-            background: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            font-size: 16px; font-family: inherit; outline: none;
-            transition: border-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .dialog .input-group input:focus { border-color: var(--md-sys-color-primary); border-width: 2px; padding: 11px 15px; }
-        .dialog .icon-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-        .dialog .icon-picker button {
-            width: 44px; height: 44px; border-radius: var(--md-sys-shape-corner-full);
-            border: 2px solid transparent; background: var(--md-sys-color-surface-container);
-            color: var(--md-sys-color-on-surface-variant);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 22px;
-            transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .dialog .icon-picker button:hover { background: var(--md-sys-color-surface-container-high); }
-        .dialog .icon-picker button.selected {
-            border-color: var(--md-sys-color-primary);
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-        }
-        .dialog .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
-        .dialog .dialog-actions button {
-            padding: 10px 24px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; font-size: 14px; font-weight: 500; cursor: pointer;
-            font-family: inherit;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .dialog .dialog-actions .btn-text { background: transparent; color: var(--md-sys-color-primary); }
-        .dialog .dialog-actions .btn-text:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .dialog .dialog-actions .btn-text:hover { background: rgba(255,255,255,0.08); }
-        .dialog .dialog-actions .btn-filled { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
-        .dialog .dialog-actions .btn-filled:hover { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
-
-        .settings-group {
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--md-sys-shape-corner-medium);
-            padding: 16px; margin-bottom: 16px;
-        }
-        .settings-group h3 { font-size: 16px; font-weight: 500; margin-bottom: 16px; color: var(--md-sys-color-primary); }
-        .theme-toggle { display: flex; gap: 8px; }
-        .theme-toggle button {
-            flex: 1; padding: 12px; border-radius: var(--md-sys-shape-corner-small);
-            border: 1px solid var(--md-sys-color-outline);
-            background: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            cursor: pointer; font-size: 14px; font-weight: 500;
-            font-family: inherit;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .theme-toggle button.active {
-            border-color: var(--md-sys-color-primary);
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-        }
-        .accent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        .accent-item {
-            display: flex; flex-direction: column; align-items: center; gap: 6px;
-            padding: 12px 8px; border-radius: var(--md-sys-shape-corner-small);
-            border: 2px solid transparent; background: var(--md-sys-color-surface);
-            cursor: pointer;
-            transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .accent-item:hover { background: var(--md-sys-color-surface-container-high); }
-        .accent-item.active { border-color: var(--md-sys-color-primary); background: var(--md-sys-color-primary-container); }
-        .accent-item .accent-circle {
-            width: 40px; height: 40px; border-radius: var(--md-sys-shape-corner-full);
-            border: 2px solid var(--md-sys-color-outline-variant);
-        }
-        .accent-item .accent-name {
-            font-size: 11px; font-weight: 500;
-            color: var(--md-sys-color-on-surface-variant); text-align: center;
-        }
-
-        .settings-row {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 12px 0; gap: 12px;
-        }
-        .settings-row + .settings-row { border-top: 1px solid var(--md-sys-color-outline-variant); }
-        .settings-row .row-label {
-            display: flex; align-items: center; gap: 12px;
-            font-size: 15px; font-weight: 500;
-            color: var(--md-sys-color-on-surface);
-            flex: 1;
-        }
-        .settings-row .row-label .material-icons-round {
-            font-size: 24px; color: var(--md-sys-color-on-surface-variant);
-        }
-        .settings-row .row-sublabel {
-            font-size: 12px; font-weight: 400;
-            color: var(--md-sys-color-on-surface-variant);
-            margin-top: 2px;
-        }
-
-        /* Switch (Material 3) */
-        .switch {
-            position: relative; display: inline-block;
-            width: 52px; height: 32px; flex-shrink: 0;
-        }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .switch .slider {
-            position: absolute; cursor: pointer;
-            inset: 0; background: var(--md-sys-color-surface-container-highest);
-            border: 2px solid var(--md-sys-color-outline);
-            border-radius: var(--md-sys-shape-corner-full);
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-                        border-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .switch .slider::before {
-            content: ''; position: absolute;
-            width: 16px; height: 16px; left: 6px; top: 50%;
-            transform: translateY(-50%);
-            background: var(--md-sys-color-outline);
-            border-radius: var(--md-sys-shape-corner-full);
-            transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .switch input:checked + .slider {
-            background: var(--md-sys-color-primary);
-            border-color: var(--md-sys-color-primary);
-        }
-        .switch input:checked + .slider::before {
-            left: 26px; width: 24px; height: 24px;
-            background: var(--md-sys-color-on-primary);
-        }
-
-        /* Select для языка */
-        .language-select {
-            position: relative; min-width: 160px;
-        }
-        .language-select-btn {
-            width: 100%; padding: 10px 16px;
-            border-radius: var(--md-sys-shape-corner-small);
-            border: 1px solid var(--md-sys-color-outline);
-            background: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            font-size: 14px; font-weight: 500;
-            font-family: inherit; cursor: pointer;
-            display: flex; align-items: center; justify-content: space-between; gap: 8px;
-            transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .language-select-btn:hover { background: var(--md-sys-color-surface-container-high); }
-        .language-select-btn .material-icons-round { font-size: 20px; }
-
-        .language-modal-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-            opacity: 0; visibility: hidden;
-            transition: opacity var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                        visibility var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-            z-index: 600; display: flex; align-items: center; justify-content: center; padding: 24px;
-        }
-        .language-modal-overlay.open { opacity: 1; visibility: visible; }
-        .language-modal {
-            background: var(--md-sys-color-surface-container-high);
-            color: var(--md-sys-color-on-surface);
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            padding: 12px; width: 100%; max-width: 340px;
-            box-shadow: var(--md-sys-elevation-5);
-            transform: scale(0.9);
-            transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized);
-        }
-        .language-modal-overlay.open .language-modal { transform: scale(1); }
-        .language-modal h3 {
-            font-size: 20px; font-weight: 500;
-            padding: 12px 16px 8px 16px;
-            color: var(--md-sys-color-on-surface);
-        }
-        .language-option {
-            display: flex; align-items: center; gap: 16px;
-            padding: 14px 16px; border-radius: var(--md-sys-shape-corner-full);
-            border: none; background: transparent;
-            color: var(--md-sys-color-on-surface);
-            font-size: 15px; font-weight: 500;
-            font-family: inherit; cursor: pointer; width: 100%; text-align: left;
-            transition: background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-        }
-        .language-option:hover { background: rgba(0,0,0,0.08); }
-        [data-theme="dark"] .language-option:hover { background: rgba(255,255,255,0.08); }
-        .language-option.selected { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
-        .language-option .lang-flag { font-size: 22px; }
-        .language-option .check-icon {
-            margin-left: auto; font-size: 22px;
-            color: var(--md-sys-color-primary);
-            visibility: hidden;
-        }
-        .language-option.selected .check-icon { visibility: visible; }
-
-        .about-page {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 48px 24px; text-align: center; gap: 16px;
-        }
-        .about-page .app-icon {
-            width: 96px; height: 96px;
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-primary-container));
-            color: var(--md-sys-color-on-primary);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 56px; box-shadow: var(--md-sys-elevation-2);
-        }
-        .about-page h2 { font-size: 28px; font-weight: 700; color: var(--md-sys-color-on-surface); }
-        .about-page .version { font-size: 14px; color: var(--md-sys-color-on-surface-variant); }
-        .about-page p {
-            font-size: 14px; color: var(--md-sys-color-on-surface-variant);
-            line-height: 1.6; max-width: 360px;
-        }
-
-        .toast-container {
-            position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
-            z-index: 800; display: flex; flex-direction: column; gap: 8px;
-            pointer-events: none; width: calc(100% - 32px); max-width: 400px;
-        }
-        .toast {
-            background: var(--md-sys-color-surface-container-high);
-            color: var(--md-sys-color-on-surface);
-            border-radius: var(--md-sys-shape-corner-medium);
-            padding: 14px 16px; box-shadow: var(--md-sys-elevation-3);
-            display: flex; align-items: center; gap: 12px;
-            animation: toastIn 0.3s var(--md-sys-motion-easing-emphasized);
-            pointer-events: auto;
-            border-left: 4px solid var(--md-sys-color-primary);
-        }
-        .toast .toast-icon {
-            width: 40px; height: 40px; border-radius: var(--md-sys-shape-corner-full);
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px; flex-shrink: 0;
-        }
-        .toast .toast-content { flex: 1; min-width: 0; }
-        .toast .toast-title {
-            font-size: 12px; font-weight: 600; color: var(--md-sys-color-primary);
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .toast .toast-message {
-            font-size: 14px; font-weight: 500; margin-top: 2px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .toast.hiding { animation: toastOut 0.3s var(--md-sys-motion-easing-standard) forwards; }
-        @keyframes toastIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        @keyframes toastOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(20px) scale(0.95); } }
-
-        .main-content::-webkit-scrollbar, .drawer::-webkit-scrollbar { display: none; }
-        .main-content, .drawer { scrollbar-width: none; -ms-overflow-style: none; }
-
-        @media (max-width: 360px) {
-            .player-cover { width: 220px; height: 220px; }
-            .player-cover .material-icons-round { font-size: 120px !important; }
-            .bottom-nav .nav-item { padding: 8px 12px; }
-            .accent-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 40px;
         }
     </style>
 </head>
-<body data-theme="light" data-accent="purple">
+<body>
+    <div class="container">
 
-    <div id="splash">
-        <span class="material-icons-round splash-icon">radio</span>
-        <div class="splash-title">NeuroRadio</div>
-        <div class="splash-sub">Material Design 3</div>
-    </div>
+        <header>
+            <div class="logo">🎵</div>
+            <h1>Политика конфиденциальности</h1>
+            <p class="subtitle">Приложение HelloMusic</p>
+        </header>
 
-    <header class="top-bar" id="topBar">
-        <button class="icon-btn" id="menuBtn" aria-label="Меню">
-            <span class="material-icons-round">menu</span>
-        </button>
-        <span class="title" id="topBarTitle">Плейлист</span>
-        <div class="actions" id="topBarActions"></div>
-    </header>
-
-    <div class="drawer-overlay" id="drawerOverlay"></div>
-    <nav class="drawer" id="drawer">
-        <div class="drawer-header">
-            <span class="material-icons-round">radio</span>
-            NeuroRadio
+        <div class="highlight">
+            <strong>Коротко:</strong> HelloMusic <strong>не собирает, не хранит и не передаёт</strong>
+            никакие персональные данные. Всё работает локально на вашем устройстве.
         </div>
-        <button class="drawer-item active" data-tab="playlist">
-            <span class="material-icons-round">queue_music</span>
-            <span data-i18n="playlist">Плейлист</span>
-        </button>
-        <button class="drawer-item" data-tab="player">
-            <span class="material-icons-round">play_circle</span>
-            <span data-i18n="player">Плеер</span>
-        </button>
-        <button class="drawer-item" data-tab="settings">
-            <span class="material-icons-round">settings</span>
-            <span data-i18n="settings">Настройки</span>
-        </button>
-        <button class="drawer-item" data-tab="about">
-            <span class="material-icons-round">info</span>
-            <span data-i18n="about">О программе</span>
-        </button>
-    </nav>
 
-    <main class="main-content" id="mainContent">
-        <section class="tab-page active" id="page-playlist">
-            <div class="search-container">
-                <div class="search-bar">
-                    <span class="material-icons-round">search</span>
-                    <input type="text" id="searchInput" placeholder="Поиск радиостанции..." data-i18n-placeholder="searchPlaceholder">
-                    <button class="clear-btn" id="clearSearch" aria-label="Очистить">
-                        <span class="material-icons-round">close</span>
-                    </button>
-                </div>
-            </div>
-            <div id="nowPlayingContainer"></div>
-            <ul class="station-list" id="stationList"></ul>
-            <div class="no-results" id="noResults" style="display:none;">
-                <span class="material-icons-round">search_off</span>
-                <p data-i18n="noResults">Ничего не найдено</p>
-            </div>
-        </section>
-
-        <section class="tab-page" id="page-player">
-            <div class="player-page">
-                <div class="player-cover" id="playerCover">
-                    <span class="material-icons-round" id="playerCoverIcon">radio</span>
-                </div>
-                <div class="player-station-name" id="playerStationName">Funk</div>
-                <div class="player-status" id="playerStatus" data-i18n="pressPlay">Нажмите Play для запуска</div>
-                <div class="player-controls">
-                    <button class="control-btn" id="prevBtn" aria-label="Предыдущая">
-                        <span class="material-icons-round">skip_previous</span>
-                    </button>
-                    <button class="play-btn" id="playPauseBtn" aria-label="Воспроизведение">
-                        <span class="material-icons-round">play_arrow</span>
-                    </button>
-                    <button class="control-btn" id="nextBtn" aria-label="Следующая">
-                        <span class="material-icons-round">skip_next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="tab-page" id="page-settings">
-            <div class="settings-group">
-                <h3 data-i18n="theme">Тема</h3>
-                <div class="theme-toggle">
-                    <button id="themeLight" class="active">
-                        <span class="material-icons-round">light_mode</span>
-                        <span data-i18n="light">Светлая</span>
-                    </button>
-                    <button id="themeDark">
-                        <span class="material-icons-round">dark_mode</span>
-                        <span data-i18n="dark">Тёмная</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="settings-group">
-                <h3 data-i18n="accentColor">Цвет акцента</h3>
-                <div class="accent-grid" id="accentGrid"></div>
-            </div>
-
-            <div class="settings-group">
-                <h3 data-i18n="behavior">Поведение</h3>
-                <div class="settings-row">
-                    <div class="row-label">
-                        <span class="material-icons-round">nightlight</span>
-                        <div>
-                            <div data-i18n="backgroundWork">Работать в фоне</div>
-                            <div class="row-sublabel" data-i18n="backgroundWorkHint">Продолжать воспроизведение при свёрнутом окне</div>
-                        </div>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="backgroundSwitch">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="settings-row">
-                    <div class="row-label">
-                        <span class="material-icons-round">notifications_active</span>
-                        <div>
-                            <div data-i18n="pushNotifications">Push-уведомления</div>
-                            <div class="row-sublabel" data-i18n="pushNotificationsHint">Уведомление о текущем треке</div>
-                        </div>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="pushSwitch">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="settings-group">
-                <h3 data-i18n="language">Язык</h3>
-                <div class="language-select">
-                    <button class="language-select-btn" id="languageBtn">
-                        <span id="languageLabel">🇷🇺 Русский</span>
-                        <span class="material-icons-round">expand_more</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="tab-page" id="page-about">
-            <div class="about-page">
-                <div class="app-icon">
-                    <span class="material-icons-round">radio</span>
-                </div>
-                <h2>NeuroRadio</h2>
-                <div class="version">Версия 1.0.0</div>
-                <p data-i18n="aboutText1">Приложение создано энтузиастом. Аудио поток принадлежит компании DatasetRadio.</p>
-                <p>Material Design 3 • PWA</p>
-            </div>
-        </section>
-    </main>
-
-    <button class="fab" id="fabAdd" aria-label="Добавить радиостанцию">
-        <span class="material-icons-round">add</span>
-    </button>
-
-    <nav class="bottom-nav">
-        <button class="nav-item active" data-tab="playlist">
-            <span class="material-icons-round">queue_music</span>
-            <span data-i18n="playlist">Плейлист</span>
-        </button>
-        <button class="nav-item" data-tab="player">
-            <span class="material-icons-round">play_circle</span>
-            <span data-i18n="player">Плеер</span>
-        </button>
-    </nav>
-
-    <div class="dialog-overlay" id="stationDialogOverlay">
-        <div class="dialog" id="stationDialog">
-            <h2 id="stationDialogTitle" data-i18n="addStation">Добавить станцию</h2>
-            <div class="input-group">
-                <label for="stationNameInput" data-i18n="stationName">Название</label>
-                <input type="text" id="stationNameInput" placeholder="Моя радиостанция" maxlength="50">
-            </div>
-            <div class="input-group">
-                <label for="stationUrlInput" data-i18n="stationUrl">Ссылка на поток</label>
-                <input type="url" id="stationUrlInput" placeholder="https://example.com/stream.aac">
-            </div>
-            <div class="input-group">
-                <label data-i18n="icon">Иконка</label>
-                <div class="icon-picker" id="iconPicker"></div>
-            </div>
-            <div class="dialog-actions">
-                <button class="btn-text" id="dialogCancel" data-i18n="cancel">Отмена</button>
-                <button class="btn-filled" id="dialogSave" data-i18n="save">Сохранить</button>
-            </div>
+        <div class="card">
+            <span class="badge">✓ Не требует интернета</span>
+            <span class="badge">✓ Не собирает данные</span>
+            <span class="badge">✓ Без аналитики</span>
         </div>
-    </div>
 
-    <div class="language-modal-overlay" id="languageModalOverlay">
-        <div class="language-modal">
-            <h3 data-i18n="chooseLanguage">Выберите язык</h3>
-            <button class="language-option" data-lang="ru">
-                <span class="lang-flag">🇷🇺</span>
-                <span>Русский</span>
-                <span class="material-icons-round check-icon">check</span>
-            </button>
-            <button class="language-option" data-lang="en">
-                <span class="lang-flag">🇬🇧</span>
-                <span>English</span>
-                <span class="material-icons-round check-icon">check</span>
-            </button>
-            <button class="language-option" data-lang="zh">
-                <span class="lang-flag">🇨🇳</span>
-                <span>中文</span>
-                <span class="material-icons-round check-icon">check</span>
-            </button>
+        <h2>1. Общие положения</h2>
+        <p>
+            Настоящая Политика конфиденциальности (далее — «Политика») описывает,
+            как мобильное приложение <strong>HelloMusic</strong> (далее — «Приложение»)
+            обрабатывает информацию пользователя.
+        </p>
+        <p>
+            Приложение разработано как <strong>локальный офлайн-плеер</strong> и предназначено
+            для воспроизведения аудиофайлов, находящихся на устройстве пользователя.
+        </p>
+        <p>
+            Используя Приложение, вы соглашаетесь с условиями настоящей Политики.
+            Если вы не согласны с ней — пожалуйста, не используйте Приложение.
+        </p>
+
+        <h2>2. Какие данные мы собираем</h2>
+        <p>
+            <strong>Мы не собираем никакие персональные данные.</strong>
+        </p>
+        <p>Приложение <strong>не запрашивает и не передаёт</strong>:</p>
+        <ul>
+            <li>Имя, фамилию, адрес электронной почты;</li>
+            <li>Номер телефона;</li>
+            <li>Геолокацию;</li>
+            <li>Список контактов;</li>
+            <li>Данные о ваших устройствах или аккаунтах;</li>
+            <li>Историю использования Приложения;</li>
+            <li>Любые другие личные сведения.</li>
+        </ul>
+
+        <h2>3. Что хранится на устройстве</h2>
+        <p>
+            Все данные Приложения хранятся <strong>только локально</strong> на вашем
+            устройстве и недоступны разработчику или третьим лицам:
+        </p>
+
+        <h3>3.1. Настройки приложения</h3>
+        <ul>
+            <li>Тёмная/светлая тема;</li>
+            <li>Акцентный цвет интерфейса;</li>
+            <li>Размер шрифта текста песен;</li>
+            <li>Параметры визуализации;</li>
+            <li>Язык интерфейса;</li>
+            <li>Включение/выключение анимаций;</li>
+            <li>Другие пользовательские настройки.</li>
+        </ul>
+
+        <h3>3.2. Список ваших треков</h3>
+        <p>
+            Приложение сохраняет список путей к аудиофайлам, которые вы добавили
+            в медиатеку, чтобы восстановить список при следующем запуске.
+            Сами аудиофайлы <strong>не копируются</strong> и <strong>не передаются</strong> —
+            используются по указанным вами путям.
+        </p>
+
+        <h3>3.3. Обложки и тексты песен</h3>
+        <p>
+            Если вы добавляете свои обложки или LRC-файлы с текстами, они
+            сохраняются во внутренней памяти Приложения и доступны только вам.
+        </p>
+
+        <h3>3.4. Демо-трек</h3>
+        <p>
+            Сгенерированный демонстрационный WAV-файл хранится во внутренней
+            памяти Приложения и может быть удалён вами в любой момент.
+        </p>
+
+        <h2>4. Разрешения</h2>
+        <p>Приложение запрашивает следующие разрешения:</p>
+
+        <h3>4.1. Доступ к файлам и медиатеке</h3>
+        <p>
+            <strong>Зачем:</strong> чтобы вы могли выбрать папку с музыкой или
+            отдельные аудиофайлы, которые хотите воспроизводить.<br>
+            <strong>Как используется:</strong> приложение сканирует выбранную
+            папку и отображает найденные аудиофайлы. Файлы <strong>не покидают</strong>
+            ваше устройство.
+        </p>
+
+        <h3>4.2. Микрофон (RECORD_AUDIO)</h3>
+        <p>
+            <strong>Зачем:</strong> для работы визуализации звука (столбики,
+            танцующие в такт музыке).<br>
+            <strong>Как используется:</strong> системный API Android
+            <code>Visualizer</code> анализирует текущий аудиопоток для
+            построения визуализации. <strong>Звук не записывается, не сохраняется
+            и не передаётся.</strong> Разрешение используется исключительно
+            для чтения аудиобуфера в реальном времени.<br>
+            <strong>Можно отключить:</strong> если не разрешать доступ к микрофону,
+            визуализация просто не будет отображаться.
+        </p>
+
+        <h3>4.3. Уведомления (POST_NOTIFICATIONS)</h3>
+        <p>
+            <strong>Зачем:</strong> чтобы показывать уведомление о текущем треке
+            в шторке и на экране блокировки.<br>
+            <strong>Как используется:</strong> уведомление содержит название трека,
+            исполнителя и кнопки управления. <strong>Ничего не отправляется наружу.</strong>
+        </p>
+
+        <h2>5. Передача данных третьим лицам</h2>
+        <p>
+            <strong>Мы не передаём никакие данные третьим лицам</strong>, поскольку
+            не собираем их. Приложение не содержит встроенной аналитики,
+            трекеров, рекламных SDK и подобных компонентов.
+        </p>
+
+        <h2>6. Дети</h2>
+        <p>
+            Приложение не предназначено для сбора данных детей и не собирает
+            данные ни о ком из пользователей. Приложение безопасно для использования
+            детьми под присмотром родителей.
+        </p>
+
+        <h2>7. Безопасность</h2>
+        <p>
+            Все данные хранятся локально и защищены стандартными механизмами
+            безопасности операционной системы Android (изоляция приложений,
+            внутренняя память).
+        </p>
+
+        <h2>8. Ваши права</h2>
+        <p>Вы в любой момент можете:</p>
+        <ul>
+            <li><strong>Удалить все данные</strong> — через Настройки приложения
+                (кнопка «Очистить плейлист») или через настройки Android
+                (Приложения → HelloMusic → Очистить данные).</li>
+            <li><strong>Удалить приложение</strong> — вместе с ним удалятся все
+                локальные данные.</li>
+            <li><strong>Отозвать разрешения</strong> — в настройках Android
+                (Приложения → HelloMusic → Разрешения).</li>
+        </ul>
+
+        <h2>9. Интернет и реклама</h2>
+        <p>
+            Приложение <strong>работает без интернета</strong>. Оно не загружает
+            никакой контент из сети, не отправляет запросы и не содержит
+            рекламных модулей.
+        </p>
+
+        <h2>10. Изменения в политике</h2>
+        <p>
+            Мы можем обновлять эту Политику. Актуальная версия всегда доступна
+            по текущему адресу. Дата последнего обновления указана внизу страницы.
+        </p>
+
+        <h2>11. Контакты</h2>
+        <p>
+            По любым вопросам, связанным с Политикой конфиденциальности
+            или работой Приложения, обращайтесь:
+        </p>
+        <div class="card">
+            <p style="margin: 0;">
+                📧 Email: <a href="mailto:q-acd@mail.ru">q-acd@mail.ru</a><br>
+                📱 Приложение: <strong>HelloMusic</strong><br>
+                👤 Разработчик: <strong>Лев</strong>
+            </p>
         </div>
+
+        <div class="meta">
+            <p><strong>Дата вступления в силу:</strong> 16 октября 2026 г.</p>
+            <p><strong>Последнее обновление:</strong> 16 октября 2026 г.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 HelloMusic. Сделано с ❤️ для любителей музыки.</p>
+        </footer>
+
     </div>
-
-    <div class="toast-container" id="toastContainer"></div>
-
-    <audio id="audioPlayer" preload="none" crossorigin="anonymous"></audio>
-
-    <script>
-        (function() {
-            'use strict';
-
-            const BUILT_IN_STATIONS = [
-                { id: 'builtin-funk', name: 'Funk', url: 'https://region-ru2.tunio.ai/funk.aac', icon: 'music_note', builtIn: true },
-                { id: 'builtin-jazz', name: 'Jazz', url: 'https://region-ru2.tunio.ai/jaz.aac', icon: 'piano', builtIn: true },
-                { id: 'builtin-pop', name: 'Pop', url: 'https://region-ru2.tunio.ai/pop.aac', icon: 'star', builtIn: true }
-            ];
-
-            const ICONS = [
-                'radio', 'music_note', 'piano', 'star', 'headphones', 'speaker',
-                'album', 'library_music', 'queue_music', 'play_circle', 'audiotrack', 'graphic_eq'
-            ];
-
-            const ACCENTS = [
-                { id: 'purple', name: 'Фиолетовый', color: '#6750A4' },
-                { id: 'blue', name: 'Синий', color: '#0B57D0' },
-                { id: 'green', name: 'Зелёный', color: '#146C2E' },
-                { id: 'orange', name: 'Оранжевый', color: '#8B5000' },
-                { id: 'red', name: 'Красный', color: '#B3261E' },
-                { id: 'teal', name: 'Бирюзовый', color: '#006A6A' },
-                { id: 'pink', name: 'Розовый', color: '#9A4059' },
-                { id: 'yellow', name: 'Жёлтый', color: '#6D5E00' },
-                { id: 'indigo', name: 'Индиго', color: '#4A5C92' }
-            ];
-
-            const I18N = {
-                ru: {
-                    playlist: 'Плейлист', player: 'Плеер', settings: 'Настройки', about: 'О программе',
-                    searchPlaceholder: 'Поиск радиостанции...', noResults: 'Ничего не найдено',
-                    pressPlay: 'Нажмите Play для запуска', playing: 'Воспроизведение...', paused: 'Пауза',
-                    noStations: 'Нет станций', theme: 'Тема', light: 'Светлая', dark: 'Тёмная',
-                    accentColor: 'Цвет акцента', behavior: 'Поведение',
-                    backgroundWork: 'Работать в фоне',
-                    backgroundWorkHint: 'Продолжать воспроизведение при свёрнутом окне',
-                    pushNotifications: 'Push-уведомления',
-                    pushNotificationsHint: 'Уведомление о текущем треке',
-                    language: 'Язык', chooseLanguage: 'Выберите язык',
-                    addStation: 'Добавить станцию', editStation: 'Редактировать станцию',
-                    stationName: 'Название', stationUrl: 'Ссылка на поток', icon: 'Иконка',
-                    cancel: 'Отмена', save: 'Сохранить',
-                    aboutText1: 'Приложение создано энтузиастом. Аудио поток принадлежит компании DatasetRadio.',
-                    nowPlaying: 'Сейчас играет', deleteConfirm: 'Удалить эту радиостанцию?',
-                    notificationTitle: 'NeuroRadio', notificationBody: 'Сейчас играет: '
-                },
-                en: {
-                    playlist: 'Playlist', player: 'Player', settings: 'Settings', about: 'About',
-                    searchPlaceholder: 'Search stations...', noResults: 'Nothing found',
-                    pressPlay: 'Press Play to start', playing: 'Playing...', paused: 'Paused',
-                    noStations: 'No stations', theme: 'Theme', light: 'Light', dark: 'Dark',
-                    accentColor: 'Accent color', behavior: 'Behavior',
-                    backgroundWork: 'Background playback',
-                    backgroundWorkHint: 'Keep playing when window is minimized',
-                    pushNotifications: 'Push notifications',
-                    pushNotificationsHint: 'Notification about current track',
-                    language: 'Language', chooseLanguage: 'Choose language',
-                    addStation: 'Add station', editStation: 'Edit station',
-                    stationName: 'Name', stationUrl: 'Stream URL', icon: 'Icon',
-                    cancel: 'Cancel', save: 'Save',
-                    aboutText1: 'App made by an enthusiast. Audio stream belongs to DatasetRadio.',
-                    nowPlaying: 'Now playing', deleteConfirm: 'Delete this radio station?',
-                    notificationTitle: 'NeuroRadio', notificationBody: 'Now playing: '
-                },
-                zh: {
-                    playlist: '播放列表', player: '播放器', settings: '设置', about: '关于',
-                    searchPlaceholder: '搜索电台...', noResults: '未找到',
-                    pressPlay: '按播放开始', playing: '播放中...', paused: '暂停',
-                    noStations: '无电台', theme: '主题', light: '浅色', dark: '深色',
-                    accentColor: '强调色', behavior: '行为',
-                    backgroundWork: '后台播放',
-                    backgroundWorkHint: '窗口最小化时继续播放',
-                    pushNotifications: '推送通知',
-                    pushNotificationsHint: '当前曲目的通知',
-                    language: '语言', chooseLanguage: '选择语言',
-                    addStation: '添加电台', editStation: '编辑电台',
-                    stationName: '名称', stationUrl: '流媒体链接', icon: '图标',
-                    cancel: '取消', save: '保存',
-                    aboutText1: '该应用由爱好者制作。音频流属于 DatasetRadio 公司。',
-                    nowPlaying: '正在播放', deleteConfirm: '删除此电台？',
-                    notificationTitle: 'NeuroRadio', notificationBody: '正在播放：'
-                }
-            };
-
-            const TAB_TITLES = { playlist: 'playlist', player: 'player', settings: 'settings', about: 'about' };
-
-            let state = {
-                currentTab: 'playlist',
-                currentStationId: null,
-                isPlaying: false,
-                isShuffle: false,
-                userStations: [],
-                editingStationId: null,
-                selectedIcon: 'radio',
-                theme: 'light',
-                accent: 'purple',
-                searchQuery: '',
-                backgroundWork: false,
-                pushNotifications: false,
-                language: 'ru'
-            };
-
-            const splash = document.getElementById('splash');
-            const menuBtn = document.getElementById('menuBtn');
-            const drawerOverlay = document.getElementById('drawerOverlay');
-            const drawer = document.getElementById('drawer');
-            const topBarTitle = document.getElementById('topBarTitle');
-            const topBarActions = document.getElementById('topBarActions');
-            const mainContent = document.getElementById('mainContent');
-            const stationListEl = document.getElementById('stationList');
-            const noResultsEl = document.getElementById('noResults');
-            const searchInput = document.getElementById('searchInput');
-            const clearSearch = document.getElementById('clearSearch');
-            const nowPlayingContainer = document.getElementById('nowPlayingContainer');
-            const fabAdd = document.getElementById('fabAdd');
-            const audioPlayer = document.getElementById('audioPlayer');
-            const playerCover = document.getElementById('playerCover');
-            const playerCoverIcon = document.getElementById('playerCoverIcon');
-            const playerStationName = document.getElementById('playerStationName');
-            const playerStatus = document.getElementById('playerStatus');
-            const prevBtn = document.getElementById('prevBtn');
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const stationDialogOverlay = document.getElementById('stationDialogOverlay');
-            const stationDialogTitle = document.getElementById('stationDialogTitle');
-            const stationNameInput = document.getElementById('stationNameInput');
-            const stationUrlInput = document.getElementById('stationUrlInput');
-            const iconPicker = document.getElementById('iconPicker');
-            const dialogCancel = document.getElementById('dialogCancel');
-            const dialogSave = document.getElementById('dialogSave');
-            const themeLight = document.getElementById('themeLight');
-            const themeDark = document.getElementById('themeDark');
-            const accentGrid = document.getElementById('accentGrid');
-            const toastContainer = document.getElementById('toastContainer');
-            const backgroundSwitch = document.getElementById('backgroundSwitch');
-            const pushSwitch = document.getElementById('pushSwitch');
-            const languageBtn = document.getElementById('languageBtn');
-            const languageLabel = document.getElementById('languageLabel');
-            const languageModalOverlay = document.getElementById('languageModalOverlay');
-
-            function t(key) {
-                const lang = I18N[state.language] || I18N.ru;
-                return lang[key] || key;
-            }
-
-            function applyI18n() {
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.dataset.i18n;
-                    el.textContent = t(key);
-                });
-                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                    el.placeholder = t(el.dataset.i18nPlaceholder);
-                });
-                document.title = 'NeuroRadio';
-                const langMap = { ru: '🇷🇺 Русский', en: '🇬🇧 English', zh: '🇨🇳 中文' };
-                languageLabel.textContent = langMap[state.language];
-                document.querySelectorAll('.language-option').forEach(el => {
-                    el.classList.toggle('selected', el.dataset.lang === state.language);
-                });
-                updatePlayerUI();
-                renderNowPlayingBanner();
-                if (topBarTitle) topBarTitle.textContent = t(TAB_TITLES[state.currentTab]);
-                if (stationDialogTitle && state.editingStationId) {
-                    stationDialogTitle.textContent = t('editStation');
-                } else if (stationDialogTitle) {
-                    stationDialogTitle.textContent = t('addStation');
-                }
-            }
-
-            function getAllStations() { return [...BUILT_IN_STATIONS, ...state.userStations]; }
-            function getStationById(id) { return getAllStations().find(s => s.id === id); }
-            function getCurrentStation() {
-                if (!state.currentStationId) return getAllStations()[0] || null;
-                return getStationById(state.currentStationId) || getAllStations()[0] || null;
-            }
-
-            function saveUserStations() {
-                try { localStorage.setItem('neuroRadio_userStations', JSON.stringify(state.userStations)); } catch (e) {}
-            }
-            function loadUserStations() {
-                try {
-                    const data = localStorage.getItem('neuroRadio_userStations');
-                    if (data) state.userStations = JSON.parse(data);
-                } catch (e) { state.userStations = []; }
-            }
-            function saveSettings() {
-                try {
-                    localStorage.setItem('neuroRadio_theme', state.theme);
-                    localStorage.setItem('neuroRadio_accent', state.accent);
-                    localStorage.setItem('neuroRadio_bg', state.backgroundWork ? '1' : '0');
-                    localStorage.setItem('neuroRadio_push', state.pushNotifications ? '1' : '0');
-                    localStorage.setItem('neuroRadio_lang', state.language);
-                } catch (e) {}
-            }
-            function loadSettings() {
-                try {
-                    const theme = localStorage.getItem('neuroRadio_theme');
-                    const accent = localStorage.getItem('neuroRadio_accent');
-                    const bg = localStorage.getItem('neuroRadio_bg');
-                    const push = localStorage.getItem('neuroRadio_push');
-                    const lang = localStorage.getItem('neuroRadio_lang');
-                    if (theme === 'dark' || theme === 'light') state.theme = theme;
-                    if (accent && ACCENTS.some(a => a.id === accent)) state.accent = accent;
-                    if (bg === '1') state.backgroundWork = true;
-                    if (push === '1') state.pushNotifications = true;
-                    if (lang === 'ru' || lang === 'en' || lang === 'zh') state.language = lang;
-                } catch (e) {}
-            }
-
-            function applyTheme() {
-                document.body.setAttribute('data-theme', state.theme);
-                document.body.setAttribute('data-accent', state.accent);
-                themeLight.classList.toggle('active', state.theme === 'light');
-                themeDark.classList.toggle('active', state.theme === 'dark');
-                document.querySelectorAll('.accent-item').forEach(el => {
-                    el.classList.toggle('active', el.dataset.accent === state.accent);
-                });
-                const meta = document.querySelector('meta[name="theme-color"]');
-                if (meta) {
-                    const accentObj = ACCENTS.find(a => a.id === state.accent);
-                    meta.setAttribute('content', accentObj ? accentObj.color : '#6750A4');
-                }
-            }
-
-            function switchTab(tabId) {
-                state.currentTab = tabId;
-                document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
-                const page = document.getElementById('page-' + tabId);
-                if (page) page.classList.add('active');
-                topBarTitle.textContent = t(TAB_TITLES[tabId]);
-                document.querySelectorAll('.drawer-item').forEach(item => {
-                    item.classList.toggle('active', item.dataset.tab === tabId);
-                });
-                document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
-                    item.classList.toggle('active', item.dataset.tab === tabId);
-                });
-                fabAdd.style.display = tabId === 'playlist' ? 'flex' : 'none';
-                updateTopBarActions();
-                closeDrawer();
-                mainContent.scrollTop = 0;
-                renderNowPlayingBanner();
-            }
-
-            function updateTopBarActions() {
-                topBarActions.innerHTML = '';
-                if (state.currentTab === 'player') {
-                    const shuffleBtn = document.createElement('button');
-                    shuffleBtn.className = 'action-btn' + (state.isShuffle ? ' active' : '');
-                    shuffleBtn.innerHTML = '<span class="material-icons-round">shuffle</span>';
-                    shuffleBtn.setAttribute('aria-label', 'Shuffle');
-                    shuffleBtn.addEventListener('click', toggleShuffle);
-                    topBarActions.appendChild(shuffleBtn);
-                }
-                if (state.currentTab === 'playlist') {
-                    const searchBtn = document.createElement('button');
-                    searchBtn.className = 'action-btn';
-                    searchBtn.innerHTML = '<span class="material-icons-round">search</span>';
-                    searchBtn.setAttribute('aria-label', 'Search');
-                    searchBtn.addEventListener('click', () => {
-                        searchInput.focus();
-                        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    });
-                    topBarActions.appendChild(searchBtn);
-                }
-            }
-
-            function openDrawer() { drawer.classList.add('open'); drawerOverlay.classList.add('open'); }
-            function closeDrawer() { drawer.classList.remove('open'); drawerOverlay.classList.remove('open'); }
-
-            function showToast(stationName) {
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.innerHTML = `
-                    <div class="toast-icon"><span class="material-icons-round">radio</span></div>
-                    <div class="toast-content">
-                        <div class="toast-title">NeuroRadio</div>
-                        <div class="toast-message">${t('nowPlaying')}: ${escapeHtml(stationName)}</div>
-                    </div>
-                `;
-                toastContainer.appendChild(toast);
-                setTimeout(() => {
-                    toast.classList.add('hiding');
-                    setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
-                }, 3500);
-            }
-
-            /* ---------- Нативные push-уведомления ---------- */
-            async function requestNotificationPermission() {
-                if (!('Notification' in window)) return false;
-                if (Notification.permission === 'granted') return true;
-                if (Notification.permission === 'denied') return false;
-                try {
-                    const perm = await Notification.requestPermission();
-                    return perm === 'granted';
-                } catch (e) { return false; }
-            }
-
-            let lastNotificationStationId = null;
-            function showNativeNotification(station) {
-                if (!state.pushNotifications) return;
-                if (!('Notification' in window)) return;
-                if (Notification.permission !== 'granted') return;
-                if (!station) return;
-                if (lastNotificationStationId === station.id) return;
-                lastNotificationStationId = station.id;
-
-                const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192"><rect width="192" height="192" fill="#6750A4" rx="48"/><circle cx="96" cy="96" r="48" fill="#EADDFF"/><text x="96" y="116" font-family="Material Icons" font-size="64" text-anchor="middle" fill="#21005D">radio</text></svg>`;
-                const iconUrl = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(iconSvg)));
-
-                try {
-                    const notif = new Notification(t('notificationTitle'), {
-                        body: t('notificationBody') + station.name,
-                        icon: iconUrl,
-                        badge: iconUrl,
-                        tag: 'neuroRadio-current',
-                        silent: false,
-                        requireInteraction: false
-                    });
-                    notif.onclick = () => {
-                        window.focus();
-                        notif.close();
-                    };
-                    setTimeout(() => { try { notif.close(); } catch (e) {} }, 6000);
-                } catch (e) {}
-            }
-
-            function playStation(id) {
-                const station = getStationById(id);
-                if (!station) return;
-
-                if (state.currentStationId === id && !audioPlayer.paused) {
-                    audioPlayer.pause();
-                    state.isPlaying = false;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                    return;
-                }
-
-                state.currentStationId = id;
-                audioPlayer.src = station.url;
-                audioPlayer.load();
-                audioPlayer.play().then(async () => {
-                    state.isPlaying = true;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                    showToast(station.name);
-                    if (state.pushNotifications) {
-                        const granted = await requestNotificationPermission();
-                        if (granted) showNativeNotification(station);
-                    }
-                }).catch(() => {
-                    state.isPlaying = false;
-                    updatePlayerUI();
-                    renderStationList();
-                });
-            }
-
-            function togglePlayPause() {
-                if (!state.currentStationId) {
-                    const first = getAllStations()[0];
-                    if (first) playStation(first.id);
-                    return;
-                }
-                if (audioPlayer.paused) {
-                    audioPlayer.play().then(async () => {
-                        state.isPlaying = true;
-                        updatePlayerUI();
-                        renderStationList();
-                        renderNowPlayingBanner();
-                        const st = getCurrentStation();
-                        if (st) {
-                            showToast(st.name);
-                            if (state.pushNotifications) {
-                                const granted = await requestNotificationPermission();
-                                if (granted) showNativeNotification(st);
-                            }
-                        }
-                    }).catch(() => {});
-                } else {
-                    audioPlayer.pause();
-                    state.isPlaying = false;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                }
-            }
-
-            function playNext() {
-                const stations = getAllStations();
-                if (stations.length === 0) return;
-                if (state.isShuffle) {
-                    let randomIndex;
-                    do {
-                        randomIndex = Math.floor(Math.random() * stations.length);
-                    } while (stations.length > 1 && stations[randomIndex].id === state.currentStationId);
-                    playStation(stations[randomIndex].id);
-                } else {
-                    const idx = stations.findIndex(s => s.id === state.currentStationId);
-                    const nextIdx = (idx + 1) % stations.length;
-                    playStation(stations[nextIdx].id);
-                }
-            }
-
-            function playPrev() {
-                const stations = getAllStations();
-                if (stations.length === 0) return;
-                if (state.isShuffle) {
-                    let randomIndex;
-                    do {
-                        randomIndex = Math.floor(Math.random() * stations.length);
-                    } while (stations.length > 1 && stations[randomIndex].id === state.currentStationId);
-                    playStation(stations[randomIndex].id);
-                } else {
-                    const idx = stations.findIndex(s => s.id === state.currentStationId);
-                    const prevIdx = (idx - 1 + stations.length) % stations.length;
-                    playStation(stations[prevIdx].id);
-                }
-            }
-
-            function toggleShuffle() {
-                state.isShuffle = !state.isShuffle;
-                updateTopBarActions();
-            }
-
-            function updatePlayerUI() {
-                const station = getCurrentStation();
-                if (station) {
-                    playerCoverIcon.textContent = station.icon || 'radio';
-                    playerStationName.textContent = station.name;
-                } else {
-                    playerCoverIcon.textContent = 'radio';
-                    playerStationName.textContent = t('noStations');
-                }
-                const icon = state.isPlaying ? 'pause' : 'play_arrow';
-                playPauseBtn.innerHTML = '<span class="material-icons-round">' + icon + '</span>';
-                if (state.isPlaying) playerStatus.textContent = t('playing');
-                else if (state.currentStationId) playerStatus.textContent = t('paused');
-                else playerStatus.textContent = t('pressPlay');
-            }
-
-            function renderNowPlayingBanner() {
-                if (state.currentTab !== 'playlist' || !state.isPlaying || !state.currentStationId) {
-                    nowPlayingContainer.innerHTML = '';
-                    return;
-                }
-                const station = getCurrentStation();
-                if (!station) { nowPlayingContainer.innerHTML = ''; return; }
-                nowPlayingContainer.innerHTML = `
-                    <div class="now-playing-banner">
-                        <div class="banner-icon"><span class="material-icons-round">${station.icon || 'radio'}</span></div>
-                        <div class="banner-info">
-                            <div class="banner-label">${t('nowPlaying')}</div>
-                            <div class="banner-station">${escapeHtml(station.name)}</div>
-                        </div>
-                    </div>
-                `;
-            }
-
-            function renderStationList() {
-                const all = getAllStations();
-                const query = state.searchQuery.trim().toLowerCase();
-                const filtered = query
-                    ? all.filter(s => s.name.toLowerCase().includes(query) || s.url.toLowerCase().includes(query))
-                    : all;
-
-                stationListEl.innerHTML = '';
-                noResultsEl.style.display = filtered.length === 0 ? 'block' : 'none';
-
-                filtered.forEach(station => {
-                    const li = document.createElement('li');
-                    li.className = 'station-item';
-                    if (station.id === state.currentStationId) li.classList.add('playing');
-                    li.innerHTML = `
-                        <div class="station-icon">
-                            <span class="material-icons-round">${station.icon || 'radio'}</span>
-                        </div>
-                        <div class="station-info">
-                            <div class="station-name">${escapeHtml(station.name)}</div>
-                            <div class="station-url">${escapeHtml(station.url)}</div>
-                        </div>
-                        <div class="station-actions">
-                            ${!station.builtIn ? `
-                                <button class="edit-btn" data-id="${station.id}" aria-label="Edit">
-                                    <span class="material-icons-round">edit</span>
-                                </button>
-                                <button class="delete-btn" data-id="${station.id}" aria-label="Delete">
-                                    <span class="material-icons-round">delete</span>
-                                </button>
-                            ` : ''}
-                        </div>
-                    `;
-                    li.addEventListener('click', (e) => {
-                        if (e.target.closest('.station-actions')) return;
-                        playStation(station.id);
-                    });
-                    stationListEl.appendChild(li);
-                });
-
-                stationListEl.querySelectorAll('.edit-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => { e.stopPropagation(); openStationDialog(btn.dataset.id); });
-                });
-                stationListEl.querySelectorAll('.delete-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => { e.stopPropagation(); deleteStation(btn.dataset.id); });
-                });
-            }
-
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-
-            function openStationDialog(editId) {
-                state.editingStationId = editId || null;
-                if (editId) {
-                    const station = getStationById(editId);
-                    if (!station) return;
-                    stationDialogTitle.textContent = t('editStation');
-                    stationNameInput.value = station.name;
-                    stationUrlInput.value = station.url;
-                    state.selectedIcon = station.icon || 'radio';
-                } else {
-                    stationDialogTitle.textContent = t('addStation');
-                    stationNameInput.value = '';
-                    stationUrlInput.value = '';
-                    state.selectedIcon = 'radio';
-                }
-                renderIconPicker();
-                stationDialogOverlay.classList.add('open');
-                setTimeout(() => stationNameInput.focus(), 300);
-            }
-
-            function closeStationDialog() {
-                stationDialogOverlay.classList.remove('open');
-                state.editingStationId = null;
-            }
-
-            function renderIconPicker() {
-                iconPicker.innerHTML = '';
-                ICONS.forEach(icon => {
-                    const btn = document.createElement('button');
-                    btn.innerHTML = `<span class="material-icons-round">${icon}</span>`;
-                    btn.dataset.icon = icon;
-                    btn.classList.toggle('selected', icon === state.selectedIcon);
-                    btn.addEventListener('click', () => {
-                        state.selectedIcon = icon;
-                        renderIconPicker();
-                    });
-                    iconPicker.appendChild(btn);
-                });
-            }
-
-            function saveStation() {
-                const name = stationNameInput.value.trim();
-                const url = stationUrlInput.value.trim();
-                if (!name || !url) {
-                    if (!name) stationNameInput.focus();
-                    else stationUrlInput.focus();
-                    return;
-                }
-                if (state.editingStationId) {
-                    const station = state.userStations.find(s => s.id === state.editingStationId);
-                    if (station) {
-                        station.name = name;
-                        station.url = url;
-                        station.icon = state.selectedIcon;
-                    }
-                } else {
-                    state.userStations.push({
-                        id: 'user-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
-                        name, url, icon: state.selectedIcon, builtIn: false
-                    });
-                }
-                saveUserStations();
-                renderStationList();
-                updatePlayerUI();
-                closeStationDialog();
-            }
-
-            function deleteStation(id) {
-                if (!confirm(t('deleteConfirm'))) return;
-                state.userStations = state.userStations.filter(s => s.id !== id);
-                saveUserStations();
-                if (state.currentStationId === id) {
-                    audioPlayer.pause();
-                    state.isPlaying = false;
-                    const remaining = getAllStations();
-                    state.currentStationId = remaining.length > 0 ? remaining[0].id : null;
-                    updatePlayerUI();
-                    renderNowPlayingBanner();
-                }
-                renderStationList();
-            }
-
-            function renderAccents() {
-                accentGrid.innerHTML = '';
-                ACCENTS.forEach(accent => {
-                    const item = document.createElement('div');
-                    item.className = 'accent-item' + (state.accent === accent.id ? ' active' : '');
-                    item.dataset.accent = accent.id;
-                    item.innerHTML = `
-                        <div class="accent-circle" style="background: ${accent.color};"></div>
-                        <div class="accent-name">${accent.name}</div>
-                    `;
-                    item.addEventListener('click', () => {
-                        state.accent = accent.id;
-                        applyTheme();
-                        saveSettings();
-                    });
-                    accentGrid.appendChild(item);
-                });
-            }
-
-            async function onPushToggle() {
-                if (pushSwitch.checked) {
-                    const granted = await requestNotificationPermission();
-                    if (!granted) {
-                        pushSwitch.checked = false;
-                        state.pushNotifications = false;
-                        saveSettings();
-                        alert('Уведомления отключены в настройках браузера');
-                        return;
-                    }
-                    state.pushNotifications = true;
-                    saveSettings();
-                    const st = getCurrentStation();
-                    if (st) showNativeNotification(st);
-                } else {
-                    state.pushNotifications = false;
-                    saveSettings();
-                }
-            }
-
-            function init() {
-                loadSettings();
-                loadUserStations();
-                applyTheme();
-                applyI18n();
-                renderAccents();
-
-                backgroundSwitch.checked = state.backgroundWork;
-                pushSwitch.checked = state.pushNotifications;
-
-                const firstStation = getAllStations()[0];
-                if (firstStation) state.currentStationId = firstStation.id;
-
-                renderStationList();
-                updatePlayerUI();
-                switchTab('playlist');
-
-                menuBtn.addEventListener('click', openDrawer);
-                drawerOverlay.addEventListener('click', closeDrawer);
-
-                document.querySelectorAll('.drawer-item').forEach(item => {
-                    item.addEventListener('click', () => switchTab(item.dataset.tab));
-                });
-                document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
-                    item.addEventListener('click', () => switchTab(item.dataset.tab));
-                });
-
-                searchInput.addEventListener('input', (e) => {
-                    state.searchQuery = e.target.value;
-                    clearSearch.classList.toggle('visible', state.searchQuery.length > 0);
-                    renderStationList();
-                });
-                clearSearch.addEventListener('click', () => {
-                    searchInput.value = '';
-                    state.searchQuery = '';
-                    clearSearch.classList.remove('visible');
-                    renderStationList();
-                    searchInput.focus();
-                });
-
-                fabAdd.addEventListener('click', () => openStationDialog(null));
-                playPauseBtn.addEventListener('click', togglePlayPause);
-                nextBtn.addEventListener('click', playNext);
-                prevBtn.addEventListener('click', playPrev);
-
-                audioPlayer.addEventListener('play', () => {
-                    state.isPlaying = true;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                });
-                audioPlayer.addEventListener('pause', () => {
-                    state.isPlaying = false;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                });
-                audioPlayer.addEventListener('ended', playNext);
-                audioPlayer.addEventListener('error', () => {
-                    state.isPlaying = false;
-                    updatePlayerUI();
-                    renderStationList();
-                    renderNowPlayingBanner();
-                });
-
-                dialogCancel.addEventListener('click', closeStationDialog);
-                dialogSave.addEventListener('click', saveStation);
-                stationDialogOverlay.addEventListener('click', (e) => {
-                    if (e.target === stationDialogOverlay) closeStationDialog();
-                });
-                stationNameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') stationUrlInput.focus(); });
-                stationUrlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') saveStation(); });
-
-                themeLight.addEventListener('click', () => {
-                    state.theme = 'light';
-                    applyTheme();
-                    saveSettings();
-                });
-                themeDark.addEventListener('click', () => {
-                    state.theme = 'dark';
-                    applyTheme();
-                    saveSettings();
-                });
-
-                backgroundSwitch.addEventListener('change', () => {
-                    state.backgroundWork = backgroundSwitch.checked;
-                    saveSettings();
-                });
-                pushSwitch.addEventListener('change', onPushToggle);
-
-                languageBtn.addEventListener('click', () => {
-                    languageModalOverlay.classList.add('open');
-                });
-                languageModalOverlay.addEventListener('click', (e) => {
-                    if (e.target === languageModalOverlay) languageModalOverlay.classList.remove('open');
-                });
-                document.querySelectorAll('.language-option').forEach(opt => {
-                    opt.addEventListener('click', () => {
-                        state.language = opt.dataset.lang;
-                        applyI18n();
-                        saveSettings();
-                        renderStationList();
-                        languageModalOverlay.classList.remove('open');
-                    });
-                });
-
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        if (languageModalOverlay.classList.contains('open')) languageModalOverlay.classList.remove('open');
-                        else if (stationDialogOverlay.classList.contains('open')) closeStationDialog();
-                        else if (drawer.classList.contains('open')) closeDrawer();
-                    }
-                });
-
-                setTimeout(() => splash.classList.add('hidden'), 1800);
-
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.register('data:application/javascript;base64,' + btoa(`
-                        self.addEventListener('install', (e) => { self.skipWaiting(); });
-                        self.addEventListener('activate', (e) => { e.waitUntil(clients.claim()); });
-                        self.addEventListener('fetch', (e) => {
-                            e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
-                        });
-                    `)).catch(() => {});
-                }
-            }
-
-            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-            else init();
-
-        })();
-    </script>
 </body>
-</html>
+            </html>

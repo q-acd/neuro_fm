@@ -14,17 +14,20 @@
             --text: #1A1A1A;
             --text-dim: #666;
             --border: #E5E5E5;
+            --shadow: rgba(0,0,0,0.08);
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #121212;
-                --surface: #1E1E1E;
-                --text: #E6E6E6;
-                --text-dim: #A0A0A0;
-                --border: #2A2A2A;
-            }
+
+        html[data-theme="dark"] {
+            --bg: #121212;
+            --surface: #1E1E1E;
+            --text: #E6E6E6;
+            --text-dim: #A0A0A0;
+            --border: #2A2A2A;
+            --shadow: rgba(0,0,0,0.4);
         }
+
         * { box-sizing: border-box; }
+
         body {
             margin: 0;
             padding: 0;
@@ -33,16 +36,100 @@
             color: var(--text);
             background: var(--bg);
             font-size: 16px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
+
+        /* ===== ВЕРХНЯЯ ПАНЕЛЬ ===== */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: color-mix(in srgb, var(--surface) 92%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .topbar-brand .mini-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #E67E22, #C0392B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .topbar-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            height: 36px;
+            padding: 0 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            user-select: none;
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-icon {
+            width: 36px;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
         .container {
             max-width: 780px;
             margin: 0 auto;
             padding: 40px 24px 80px;
         }
-        header {
+
+        header.page-header {
             text-align: center;
             margin-bottom: 48px;
         }
+
         .logo {
             display: inline-block;
             width: 72px;
@@ -55,16 +142,19 @@
             margin-bottom: 16px;
             box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3);
         }
+
         h1 {
             font-size: 28px;
             margin: 0 0 8px;
             font-weight: 700;
         }
+
         .subtitle {
             color: var(--text-dim);
             font-size: 15px;
             margin: 0;
         }
+
         h2 {
             font-size: 20px;
             margin: 40px 0 12px;
@@ -72,20 +162,21 @@
             border-bottom: 2px solid var(--accent);
             display: inline-block;
         }
+
         h3 {
             font-size: 16px;
             margin: 24px 0 8px;
             color: var(--accent);
         }
-        p, li {
-            color: var(--text);
-        }
+
         ul {
             padding-left: 24px;
         }
+
         li {
             margin-bottom: 8px;
         }
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -93,6 +184,7 @@
             padding: 24px;
             margin: 24px 0;
         }
+
         .highlight {
             background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(192, 57, 43, 0.1));
             border-left: 4px solid var(--accent);
@@ -100,17 +192,21 @@
             border-radius: 8px;
             margin: 20px 0;
         }
+
         .highlight strong {
             color: var(--accent);
         }
+
         a {
             color: var(--accent);
             text-decoration: none;
             border-bottom: 1px dashed var(--accent);
         }
+
         a:hover {
             border-bottom-style: solid;
         }
+
         .meta {
             font-size: 13px;
             color: var(--text-dim);
@@ -119,6 +215,7 @@
             padding-top: 24px;
             border-top: 1px solid var(--border);
         }
+
         .badge {
             display: inline-block;
             background: rgba(46, 125, 50, 0.15);
@@ -129,208 +226,480 @@
             font-weight: 600;
             margin-bottom: 16px;
         }
-        @media (prefers-color-scheme: dark) {
-            .badge {
-                background: rgba(76, 175, 80, 0.2);
-                color: #81C784;
-            }
+
+        html[data-theme="dark"] .badge {
+            background: rgba(76, 175, 80, 0.2);
+            color: #81C784;
         }
+
         footer {
             text-align: center;
             font-size: 13px;
             color: var(--text-dim);
             margin-top: 40px;
         }
+
+        code {
+            background: var(--surface);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 500px) {
+            .topbar {
+                padding: 10px 16px;
+            }
+            .topbar-brand span {
+                display: none;
+            }
+            .btn span {
+                display: none;
+            }
+            .btn {
+                padding: 0 10px;
+            }
+            .container {
+                padding: 24px 16px 60px;
+            }
+            h1 { font-size: 24px; }
+            h2 { font-size: 18px; }
+        }
+
+        /* ===== СКРЫТИЕ ЭЛЕМЕНТОВ ПРИ ПЕЧАТИ / СОХРАНЕНИИ ===== */
+        @media print {
+            .topbar { display: none; }
+            body { background: #fff; color: #000; }
+            .btn { display: none; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- ========== ВЕРХНЯЯ ПАНЕЛЬ ========== -->
+    <div class="topbar no-print">
+        <a href="#" class="topbar-brand">
+            <div class="mini-logo">🎵</div>
+            <span>HelloMusic</span>
+        </a>
+
+        <div class="topbar-actions">
+            <button class="btn btn-icon" id="btnLang" title="Язык / Language">
+                <span id="langLabel">RU</span>
+            </button>
+            <button class="btn btn-icon" id="btnTheme" title="Тема / Theme">
+                <span id="themeIcon">🌓</span>
+            </button>
+            <button class="btn btn-icon" id="btnSave" title="Сохранить / Save">
+                💾
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== КОНТЕНТ ========== -->
     <div class="container">
 
-        <header>
+        <header class="page-header">
             <div class="logo">🎵</div>
-            <h1>Политика конфиденциальности</h1>
-            <p class="subtitle">Приложение HelloMusic</p>
+            <h1 data-i18n="title">Политика конфиденциальности</h1>
+            <p class="subtitle" data-i18n="subtitle">Приложение HelloMusic</p>
         </header>
 
         <div class="highlight">
-            <strong>Коротко:</strong> HelloMusic <strong>не собирает, не хранит и не передаёт</strong>
-            никакие персональные данные. Всё работает локально на вашем устройстве.
+            <strong data-i18n="highlight_strong">Коротко:</strong>
+            <span data-i18n="highlight_text">HelloMusic не собирает, не хранит и не передаёт никакие персональные данные. Всё работает локально на вашем устройстве.</span>
         </div>
 
         <div class="card">
-            <span class="badge">✓ Не требует интернета</span>
-            <span class="badge">✓ Не собирает данные</span>
-            <span class="badge">✓ Без аналитики</span>
+            <span class="badge" data-i18n="badge1">✓ Не требует интернета</span>
+            <span class="badge" data-i18n="badge2">✓ Не собирает данные</span>
+            <span class="badge" data-i18n="badge3">✓ Без аналитики</span>
         </div>
 
-        <h2>1. Общие положения</h2>
-        <p>
+        <h2 data-i18n="s1_title">1. Общие положения</h2>
+        <p data-i18n="s1_p1">
             Настоящая Политика конфиденциальности (далее — «Политика») описывает,
             как мобильное приложение <strong>HelloMusic</strong> (далее — «Приложение»)
             обрабатывает информацию пользователя.
         </p>
-        <p>
+        <p data-i18n="s1_p2">
             Приложение разработано как <strong>локальный офлайн-плеер</strong> и предназначено
             для воспроизведения аудиофайлов, находящихся на устройстве пользователя.
         </p>
-        <p>
+        <p data-i18n="s1_p3">
             Используя Приложение, вы соглашаетесь с условиями настоящей Политики.
             Если вы не согласны с ней — пожалуйста, не используйте Приложение.
         </p>
 
-        <h2>2. Какие данные мы собираем</h2>
-        <p>
-            <strong>Мы не собираем никакие персональные данные.</strong>
-        </p>
-        <p>Приложение <strong>не запрашивает и не передаёт</strong>:</p>
+        <h2 data-i18n="s2_title">2. Какие данные мы собираем</h2>
+        <p><strong data-i18n="s2_p1">Мы не собираем никакие персональные данные.</strong></p>
+        <p data-i18n="s2_p2">Приложение <strong>не запрашивает и не передаёт</strong>:</p>
         <ul>
-            <li>Имя, фамилию, адрес электронной почты;</li>
-            <li>Номер телефона;</li>
-            <li>Геолокацию;</li>
-            <li>Список контактов;</li>
-            <li>Данные о ваших устройствах или аккаунтах;</li>
-            <li>Историю использования Приложения;</li>
-            <li>Любые другие личные сведения.</li>
+            <li data-i18n="s2_li1">Имя, фамилию, адрес электронной почты;</li>
+            <li data-i18n="s2_li2">Номер телефона;</li>
+            <li data-i18n="s2_li3">Геолокацию;</li>
+            <li data-i18n="s2_li4">Список контактов;</li>
+            <li data-i18n="s2_li5">Данные о ваших устройствах или аккаунтах;</li>
+            <li data-i18n="s2_li6">Историю использования Приложения;</li>
+            <li data-i18n="s2_li7">Любые другие личные сведения.</li>
         </ul>
 
-        <h2>3. Что хранится на устройстве</h2>
-        <p>
+        <h2 data-i18n="s3_title">3. Что хранится на устройстве</h2>
+        <p data-i18n="s3_intro">
             Все данные Приложения хранятся <strong>только локально</strong> на вашем
             устройстве и недоступны разработчику или третьим лицам:
         </p>
 
-        <h3>3.1. Настройки приложения</h3>
+        <h3 data-i18n="s3_1_title">3.1. Настройки приложения</h3>
         <ul>
-            <li>Тёмная/светлая тема;</li>
-            <li>Акцентный цвет интерфейса;</li>
-            <li>Размер шрифта текста песен;</li>
-            <li>Параметры визуализации;</li>
-            <li>Язык интерфейса;</li>
-            <li>Включение/выключение анимаций;</li>
-            <li>Другие пользовательские настройки.</li>
+            <li data-i18n="s3_1_li1">Тёмная/светлая тема;</li>
+            <li data-i18n="s3_1_li2">Акцентный цвет интерфейса;</li>
+            <li data-i18n="s3_1_li3">Размер шрифта текста песен;</li>
+            <li data-i18n="s3_1_li4">Параметры визуализации;</li>
+            <li data-i18n="s3_1_li5">Язык интерфейса;</li>
+            <li data-i18n="s3_1_li6">Включение/выключение анимаций;</li>
+            <li data-i18n="s3_1_li7">Другие пользовательские настройки.</li>
         </ul>
 
-        <h3>3.2. Список ваших треков</h3>
-        <p>
+        <h3 data-i18n="s3_2_title">3.2. Список ваших треков</h3>
+        <p data-i18n="s3_2_p">
             Приложение сохраняет список путей к аудиофайлам, которые вы добавили
             в медиатеку, чтобы восстановить список при следующем запуске.
             Сами аудиофайлы <strong>не копируются</strong> и <strong>не передаются</strong> —
             используются по указанным вами путям.
         </p>
 
-        <h3>3.3. Обложки и тексты песен</h3>
-        <p>
+        <h3 data-i18n="s3_3_title">3.3. Обложки и тексты песен</h3>
+        <p data-i18n="s3_3_p">
             Если вы добавляете свои обложки или LRC-файлы с текстами, они
             сохраняются во внутренней памяти Приложения и доступны только вам.
         </p>
 
-        <h3>3.4. Демо-трек</h3>
-        <p>
+        <h3 data-i18n="s3_4_title">3.4. Демо-трек</h3>
+        <p data-i18n="s3_4_p">
             Сгенерированный демонстрационный WAV-файл хранится во внутренней
             памяти Приложения и может быть удалён вами в любой момент.
         </p>
 
-        <h2>4. Разрешения</h2>
-        <p>Приложение запрашивает следующие разрешения:</p>
+        <h2 data-i18n="s4_title">4. Разрешения</h2>
+        <p data-i18n="s4_intro">Приложение запрашивает следующие разрешения:</p>
 
-        <h3>4.1. Доступ к файлам и медиатеке</h3>
+        <h3 data-i18n="s4_1_title">4.1. Доступ к файлам и медиатеке</h3>
         <p>
-            <strong>Зачем:</strong> чтобы вы могли выбрать папку с музыкой или
-            отдельные аудиофайлы, которые хотите воспроизводить.<br>
-            <strong>Как используется:</strong> приложение сканирует выбранную
+            <strong data-i18n="s4_1_why">Зачем:</strong>
+            <span data-i18n="s4_1_why_text">чтобы вы могли выбрать папку с музыкой или
+            отдельные аудиофайлы, которые хотите воспроизводить.</span><br>
+            <strong data-i18n="s4_1_how">Как используется:</strong>
+            <span data-i18n="s4_1_how_text">приложение сканирует выбранную
             папку и отображает найденные аудиофайлы. Файлы <strong>не покидают</strong>
-            ваше устройство.
+            ваше устройство.</span>
         </p>
 
-        <h3>4.2. Микрофон (RECORD_AUDIO)</h3>
+        <h3 data-i18n="s4_2_title">4.2. Микрофон (RECORD_AUDIO)</h3>
         <p>
-            <strong>Зачем:</strong> для работы визуализации звука (столбики,
-            танцующие в такт музыке).<br>
-            <strong>Как используется:</strong> системный API Android
-            <code>Visualizer</code> анализирует текущий аудиопоток для
+            <strong data-i18n="s4_2_why">Зачем:</strong>
+            <span data-i18n="s4_2_why_text">для работы визуализации звука (столбики,
+            танцующие в такт музыке).</span><br>
+            <strong data-i18n="s4_2_how">Как используется:</strong>
+            <span data-i18n="s4_2_how_text">системный API Android <code>Visualizer</code> анализирует текущий аудиопоток для
             построения визуализации. <strong>Звук не записывается, не сохраняется
             и не передаётся.</strong> Разрешение используется исключительно
-            для чтения аудиобуфера в реальном времени.<br>
-            <strong>Можно отключить:</strong> если не разрешать доступ к микрофону,
-            визуализация просто не будет отображаться.
+            для чтения аудиобуфера в реальном времени.</span><br>
+            <strong data-i18n="s4_2_off">Можно отключить:</strong>
+            <span data-i18n="s4_2_off_text">если не разрешать доступ к микрофону,
+            визуализация просто не будет отображаться.</span>
         </p>
 
-        <h3>4.3. Уведомления (POST_NOTIFICATIONS)</h3>
+        <h3 data-i18n="s4_3_title">4.3. Уведомления (POST_NOTIFICATIONS)</h3>
         <p>
-            <strong>Зачем:</strong> чтобы показывать уведомление о текущем треке
-            в шторке и на экране блокировки.<br>
-            <strong>Как используется:</strong> уведомление содержит название трека,
-            исполнителя и кнопки управления. <strong>Ничего не отправляется наружу.</strong>
+            <strong data-i18n="s4_3_why">Зачем:</strong>
+            <span data-i18n="s4_3_why_text">чтобы показывать уведомление о текущем треке
+            в шторке и на экране блокировки.</span><br>
+            <strong data-i18n="s4_3_how">Как используется:</strong>
+            <span data-i18n="s4_3_how_text">уведомление содержит название трека,
+            исполнителя и кнопки управления. <strong>Ничего не отправляется наружу.</strong></span>
         </p>
 
-        <h2>5. Передача данных третьим лицам</h2>
-        <p>
+        <h2 data-i18n="s5_title">5. Передача данных третьим лицам</h2>
+        <p data-i18n="s5_p">
             <strong>Мы не передаём никакие данные третьим лицам</strong>, поскольку
             не собираем их. Приложение не содержит встроенной аналитики,
             трекеров, рекламных SDK и подобных компонентов.
         </p>
 
-        <h2>6. Дети</h2>
-        <p>
+        <h2 data-i18n="s6_title">6. Дети</h2>
+        <p data-i18n="s6_p">
             Приложение не предназначено для сбора данных детей и не собирает
             данные ни о ком из пользователей. Приложение безопасно для использования
             детьми под присмотром родителей.
         </p>
 
-        <h2>7. Безопасность</h2>
-        <p>
+        <h2 data-i18n="s7_title">7. Безопасность</h2>
+        <p data-i18n="s7_p">
             Все данные хранятся локально и защищены стандартными механизмами
             безопасности операционной системы Android (изоляция приложений,
             внутренняя память).
         </p>
 
-        <h2>8. Ваши права</h2>
-        <p>Вы в любой момент можете:</p>
+        <h2 data-i18n="s8_title">8. Ваши права</h2>
+        <p data-i18n="s8_intro">Вы в любой момент можете:</p>
         <ul>
-            <li><strong>Удалить все данные</strong> — через Настройки приложения
+            <li>
+                <strong data-i18n="s8_li1_b">Удалить все данные</strong>
+                <span data-i18n="s8_li1"> — через Настройки приложения
                 (кнопка «Очистить плейлист») или через настройки Android
-                (Приложения → HelloMusic → Очистить данные).</li>
-            <li><strong>Удалить приложение</strong> — вместе с ним удалятся все
-                локальные данные.</li>
-            <li><strong>Отозвать разрешения</strong> — в настройках Android
-                (Приложения → HelloMusic → Разрешения).</li>
+                (Приложения → HelloMusic → Очистить данные).</span>
+            </li>
+            <li>
+                <strong data-i18n="s8_li2_b">Удалить приложение</strong>
+                <span data-i18n="s8_li2"> — вместе с ним удалятся все
+                локальные данные.</span>
+            </li>
+            <li>
+                <strong data-i18n="s8_li3_b">Отозвать разрешения</strong>
+                <span data-i18n="s8_li3"> — в настройках Android
+                (Приложения → HelloMusic → Разрешения).</span>
+            </li>
         </ul>
 
-        <h2>9. Интернет и реклама</h2>
-        <p>
+        <h2 data-i18n="s9_title">9. Интернет и реклама</h2>
+        <p data-i18n="s9_p">
             Приложение <strong>работает без интернета</strong>. Оно не загружает
             никакой контент из сети, не отправляет запросы и не содержит
             рекламных модулей.
         </p>
 
-        <h2>10. Изменения в политике</h2>
-        <p>
+        <h2 data-i18n="s10_title">10. Изменения в политике</h2>
+        <p data-i18n="s10_p">
             Мы можем обновлять эту Политику. Актуальная версия всегда доступна
             по текущему адресу. Дата последнего обновления указана внизу страницы.
         </p>
 
-        <h2>11. Контакты</h2>
-        <p>
+        <h2 data-i18n="s11_title">11. Контакты</h2>
+        <p data-i18n="s11_intro">
             По любым вопросам, связанным с Политикой конфиденциальности
             или работой Приложения, обращайтесь:
         </p>
         <div class="card">
             <p style="margin: 0;">
                 📧 Email: <a href="mailto:q-acd@mail.ru">q-acd@mail.ru</a><br>
-                📱 Приложение: <strong>HelloMusic</strong><br>
-                👤 Разработчик: <strong>Лев</strong>
+                📱 <span data-i18n="contacts_app">Приложение:</span> <strong>HelloMusic</strong><br>
+                👤 <span data-i18n="contacts_dev">Разработчик:</span> <strong data-i18n="contacts_name">Лев</strong>
             </p>
         </div>
 
         <div class="meta">
-            <p><strong>Дата вступления в силу:</strong> 16 октября 2026 г.</p>
-            <p><strong>Последнее обновление:</strong> 16 октября 2026 г.</p>
+            <p><strong data-i18n="meta_effect">Дата вступления в силу:</strong> <span data-i18n="meta_date">16 октября 2026 г.</span></p>
+            <p><strong data-i18n="meta_update">Последнее обновление:</strong> <span data-i18n="meta_date2">16 октября 2026 г.</span></p>
         </div>
 
         <footer>
-            <p>© 2026 HelloMusic. Сделано с ❤️ для любителей музыки.</p>
+            <p data-i18n="footer">© 2026 HelloMusic. Сделано с ❤️ для любителей музыки.</p>
         </footer>
 
     </div>
+
+    <!-- ========== СКРИПТЫ ========== -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ========== СЛОВАРИ ПЕРЕВОДОВ ==========
+        const I18N = {
+            ru: {}, // русский берётся из HTML как есть
+            en: {
+                title: "Privacy Policy",
+                subtitle: "HelloMusic App",
+                highlight_strong: "TL;DR:",
+                highlight_text: "HelloMusic does not collect, store or share any personal data. Everything works locally on your device.",
+
+                badge1: "✓ No internet required",
+                badge2: "✓ No data collection",
+                badge3: "✓ No analytics",
+
+                s1_title: "1. General Provisions",
+                s1_p1: "This Privacy Policy (the \"Policy\") describes how the mobile application <strong>HelloMusic</strong> (the \"App\") processes user information.",
+                s1_p2: "The App is designed as a <strong>local offline player</strong> and is intended for playing audio files stored on the user's device.",
+                s1_p3: "By using the App, you agree to the terms of this Policy. If you do not agree, please do not use the App.",
+
+                s2_title: "2. What Data We Collect",
+                s2_p1: "We do not collect any personal data.",
+                s2_p2: "The App <strong>does not request or transmit</strong>:",
+                s2_li1: "First name, last name, email address;",
+                s2_li2: "Phone number;",
+                s2_li3: "Location;",
+                s2_li4: "Contacts list;",
+                s2_li5: "Data about your devices or accounts;",
+                s2_li6: "App usage history;",
+                s2_li7: "Any other personal information.",
+
+                s3_title: "3. What Is Stored on the Device",
+                s3_intro: "All App data is stored <strong>locally only</strong> on your device and is not accessible to the developer or third parties:",
+                s3_1_title: "3.1. App Settings",
+                s3_1_li1: "Dark/light theme;",
+                s3_1_li2: "Interface accent color;",
+                s3_1_li3: "Lyrics font size;",
+                s3_1_li4: "Visualization parameters;",
+                s3_1_li5: "Interface language;",
+                s3_1_li6: "Animations on/off;",
+                s3_1_li7: "Other user settings.",
+                s3_2_title: "3.2. Your Track List",
+                s3_2_p: "The App saves a list of paths to audio files you added to your library so it can restore the list on the next launch. The audio files themselves are <strong>not copied</strong> and <strong>not transmitted</strong> — they are used at the paths you specify.",
+                s3_3_title: "3.3. Covers and Lyrics",
+                s3_3_p: "If you add your own covers or LRC lyrics files, they are stored in the App's internal memory and are available only to you.",
+                s3_4_title: "3.4. Demo Track",
+                s3_4_p: "The generated demo WAV file is stored in the App's internal memory and can be deleted by you at any time.",
+
+                s4_title: "4. Permissions",
+                s4_intro: "The App requests the following permissions:",
+
+                s4_1_title: "4.1. File and Media Access",
+                s4_1_why: "Why:",
+                s4_1_why_text: "so you can select a folder with music or individual audio files you want to play.",
+                s4_1_how: "How it's used:",
+                s4_1_how_text: "the App scans the selected folder and displays the audio files found. Files <strong>never leave</strong> your device.",
+
+                s4_2_title: "4.2. Microphone (RECORD_AUDIO)",
+                s4_2_why: "Why:",
+                s4_2_why_text: "for audio visualization (bars dancing to the music).",
+                s4_2_how: "How it's used:",
+                s4_2_how_text: "the Android system API <code>Visualizer</code> analyzes the current audio stream to build the visualization. <strong>Audio is not recorded, saved or transmitted.</strong> The permission is used only to read the audio buffer in real time.",
+                s4_2_off: "Can be disabled:",
+                s4_2_off_text: "if you don't grant microphone access, the visualization simply won't be displayed.",
+
+                s4_3_title: "4.3. Notifications (POST_NOTIFICATIONS)",
+                s4_3_why: "Why:",
+                s4_3_why_text: "to show a notification about the current track in the notification shade and on the lock screen.",
+                s4_3_how: "How it's used:",
+                s4_3_how_text: "the notification contains the track title, artist and control buttons. <strong>Nothing is sent outside.</strong>",
+
+                s5_title: "5. Transfer to Third Parties",
+                s5_p: "<strong>We do not transfer any data to third parties</strong>, since we do not collect it. The App contains no built-in analytics, trackers, ad SDKs or similar components.",
+
+                s6_title: "6. Children",
+                s6_p: "The App is not intended to collect data from children and does not collect data from any user. The App is safe for use by children under parental supervision.",
+
+                s7_title: "7. Security",
+                s7_p: "All data is stored locally and protected by standard Android OS security mechanisms (app isolation, internal storage).",
+
+                s8_title: "8. Your Rights",
+                s8_intro: "You can at any time:",
+                s8_li1_b: "Delete all data",
+                s8_li1: " — via the App Settings (\"Clear playlist\" button) or via Android settings (Apps → HelloMusic → Clear data).",
+                s8_li2_b: "Uninstall the App",
+                s8_li2: " — all local data will be deleted along with it.",
+                s8_li3_b: "Revoke permissions",
+                s8_li3: " — in Android settings (Apps → HelloMusic → Permissions).",
+
+                s9_title: "9. Internet and Ads",
+                s9_p: "The App <strong>works without internet</strong>. It does not download any content from the network, does not send requests and contains no advertising modules.",
+
+                s10_title: "10. Changes to This Policy",
+                s10_p: "We may update this Policy. The current version is always available at this address. The last updated date is shown at the bottom of the page.",
+
+                s11_title: "11. Contacts",
+                s11_intro: "For any questions regarding this Privacy Policy or the App, please contact:",
+                contacts_app: "App:",
+                contacts_dev: "Developer:",
+                contacts_name: "Leo",
+
+                meta_effect: "Effective date:",
+                meta_update: "Last updated:",
+                meta_date: "October 16, 2026",
+                meta_date2: "October 16, 2026",
+                footer: "© 2026 HelloMusic. Made with ❤️ for music lovers."
+            }
+        };
+
+        // ========== ЯЗЫК ==========
+        const KEY_LANG = 'hellomusic_privacy_lang';
+        let currentLang = localStorage.getItem(KEY_LANG) || 'ru';
+
+        function applyLang(lang) {
+            currentLang = lang;
+            localStorage.setItem(KEY_LANG, lang);
+            document.documentElement.lang = lang;
+            document.getElementById('langLabel').textContent = lang.toUpperCase();
+
+            // Для русского — берём оригинальные тексты из data-атрибутов
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (lang === 'ru') {
+                    // Сохраняем русский в data-ru при первом применении
+                    if (!el.dataset.ru) {
+                        el.dataset.ru = el.innerHTML;
+                    }
+                    el.innerHTML = el.dataset.ru;
+                } else {
+                    // Сохраняем русский, если ещё не сохранён
+                    if (!el.dataset.ru) {
+                        el.dataset.ru = el.innerHTML;
+                    }
+                    const translated = I18N.en[key];
+                    if (translated) {
+                        el.innerHTML = translated;
+                    }
+                }
+            });
+        }
+
+        document.getElementById('btnLang').addEventListener('click', () => {
+            applyLang(currentLang === 'ru' ? 'en' : 'ru');
+        });
+
+        // ========== ТЕМА ==========
+        const KEY_THEME = 'hellomusic_privacy_theme';
+        let currentTheme = localStorage.getItem(KEY_THEME) || 'auto';
+
+        function applyTheme(theme) {
+            currentTheme = theme;
+            localStorage.setItem(KEY_THEME, theme);
+            const icon = document.getElementById('themeIcon');
+
+            if (theme === 'auto') {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                icon.textContent = '🌓';
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+            }
+        }
+
+        document.getElementById('btnTheme').addEventListener('click', () => {
+            const order = ['light', 'dark', 'auto'];
+            const next = order[(order.indexOf(currentTheme) + 1) % order.length];
+            applyTheme(next);
+        });
+
+        // Следим за системной темой, если auto
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (currentTheme === 'auto') applyTheme('auto');
+        });
+
+        // ========== СОХРАНИТЬ ==========
+        document.getElementById('btnSave').addEventListener('click', () => {
+            // Открываем диалог печати — пользователь может сохранить как PDF
+            // или использовать Ctrl+S
+            window.print();
+        });
+
+        // Ctrl+S / Cmd+S — тоже печать в PDF
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+
+        // ========== ИНИЦИАЛИЗАЦИЯ ==========
+        applyLang(currentLang);
+        applyTheme(currentTheme);
+    })();
+    </script>
+
 </body>
-  </html>
+    </html>

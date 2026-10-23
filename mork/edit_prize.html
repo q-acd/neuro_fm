@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ==================== БАЗА ==================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -17,12 +16,12 @@
             --coral: #FF7E5F;
             --ink: #2b1d0e;
             --muted: #7a6653;
-            --card-bg: rgba(255, 255, 255, 0.72);
+            --card-bg: rgba(255, 255, 255, 0.78);
             --card-border: rgba(255, 179, 71, 0.4);
             --shadow: 0 12px 32px rgba(200, 130, 30, 0.14);
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -36,7 +35,113 @@
                 radial-gradient(circle at 50% 100%, #ffd8b8 0%, transparent 50%),
                 linear-gradient(160deg, #fffaf2 0%, #ffeede 50%, #fff5e8 100%);
             background-attachment: fixed;
-            padding: 2rem 1rem 9rem;
+            padding: 0 1rem 9rem;
+        }
+
+        /* ==================== НАВИГАЦИЯ ==================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            margin: 0 -1rem;
+            padding: 0.7rem 1rem;
+            background: rgba(255, 250, 242, 0.92);
+            border-bottom: 1px solid rgba(255, 179, 71, 0.3);
+            box-shadow: 0 4px 18px rgba(200, 130, 30, 0.08);
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-toggle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 179, 71, 0.5);
+            background: #fff;
+            color: var(--gold-dark);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .nav-toggle:hover {
+            background: rgba(255, 179, 71, 0.14);
+            box-shadow: 0 6px 18px rgba(255, 150, 60, 0.2);
+        }
+
+        .nav-toggle .arrow {
+            transition: transform 0.25s ease;
+            font-size: 0.75rem;
+        }
+
+        .nav-dropdown.open .nav-toggle .arrow { transform: rotate(180deg); }
+
+        .nav-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.5rem);
+            min-width: 220px;
+            background: #fffcf6;
+            border: 1px solid rgba(255, 179, 71, 0.45);
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(160, 90, 20, 0.22);
+            padding: 0.4rem;
+            list-style: none;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-dropdown.open .nav-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.65rem 0.9rem;
+            border-radius: 10px;
+            color: #4a3826;
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 500;
+            transition: background 0.15s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 179, 71, 0.16);
+            color: var(--gold-dark);
         }
 
         /* ==================== КОНТЕЙНЕР ==================== */
@@ -44,6 +149,7 @@
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
+            padding-top: 2rem;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -57,21 +163,17 @@
             border-radius: 26px;
             box-shadow: var(--shadow);
             padding: 2.2rem;
-            position: relative;
             animation: fadeUp 0.6s ease both;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            transition: box-shadow 0.3s ease;
         }
 
-        .card:hover {
-            box-shadow: 0 18px 44px rgba(200, 130, 30, 0.2);
-        }
+        .card:hover { box-shadow: 0 18px 44px rgba(200, 130, 30, 0.2); }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(28px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Заголовки */
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; letter-spacing: -0.02em; }
 
         h1 {
@@ -84,12 +186,7 @@
             text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--muted);
-            margin-bottom: 1.4rem;
-        }
+        .subtitle { text-align: center; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.4rem; }
 
         h2 {
             font-size: 1.55rem;
@@ -101,11 +198,7 @@
             gap: 0.6rem;
         }
 
-        h2 .h2-icon {
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
+        h2 .h2-icon { display: inline-block; transition: transform 0.3s ease; }
         .card:hover h2 .h2-icon { transform: rotate(-10deg) scale(1.1); }
 
         h2::after {
@@ -115,12 +208,11 @@
             background: linear-gradient(90deg, rgba(255, 179, 71, 0.8), transparent);
         }
 
-        /* ==================== ВИДЕО В СТРОКУ ==================== */
+        /* ==================== ВИДЕО ==================== */
         .video-scroller {
             display: flex;
             gap: 1.2rem;
             overflow-x: auto;
-            overflow-y: hidden;
             padding: 0.4rem 0.2rem 1rem;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
@@ -128,17 +220,9 @@
             scrollbar-color: var(--gold) rgba(255, 179, 71, 0.15);
         }
 
-        .video-scroller::-webkit-scrollbar {
-            height: 8px;
-        }
-        .video-scroller::-webkit-scrollbar-track {
-            background: rgba(255, 179, 71, 0.12);
-            border-radius: 4px;
-        }
-        .video-scroller::-webkit-scrollbar-thumb {
-            background: linear-gradient(90deg, var(--gold), var(--coral));
-            border-radius: 4px;
-        }
+        .video-scroller::-webkit-scrollbar { height: 8px; }
+        .video-scroller::-webkit-scrollbar-track { background: rgba(255, 179, 71, 0.12); border-radius: 4px; }
+        .video-scroller::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--gold), var(--coral)); border-radius: 4px; }
 
         .video-card {
             flex: 0 0 auto;
@@ -157,27 +241,26 @@
             box-shadow: 0 14px 30px rgba(255, 150, 60, 0.22);
         }
 
-        video {
+        video { width: 100%; border-radius: 14px; display: block; background: #000; }
+
+        .video-caption { text-align: center; margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+
+        .video-placeholder {
             width: 100%;
+            aspect-ratio: 16 / 9;
             border-radius: 14px;
-            display: block;
-            background: #000;
+            background: repeating-linear-gradient(45deg, #ffeede, #ffeede 10px, #fff6ea 10px, #fff6ea 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 1rem;
+            border: 1px dashed rgba(255, 179, 71, 0.6);
         }
 
-        .video-caption {
-            text-align: center;
-            margin-top: 0.6rem;
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        .video-note {
-            text-align: center;
-            margin-top: 0.6rem;
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
+        .video-note { text-align: center; margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); }
 
         /* ==================== ПРАВИЛА ==================== */
         .rules-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
@@ -193,22 +276,13 @@
             transition: background 0.25s, transform 0.25s;
         }
 
-        .rules-list li:hover {
-            background: rgba(255, 179, 71, 0.22);
-            transform: translateX(6px);
-        }
+        .rules-list li:hover { background: rgba(255, 179, 71, 0.22); transform: translateX(6px); }
 
-        .rule-icon {
-            font-size: 1.25rem;
-            line-height: 1.4;
-            transition: transform 0.3s ease;
-        }
-
+        .rule-icon { font-size: 1.25rem; line-height: 1.4; transition: transform 0.3s ease; }
         .rules-list li:hover .rule-icon { transform: scale(1.2) rotate(6deg); }
-
         .rule-text { font-size: 0.98rem; color: #4a3826; }
 
-        /* ==================== ПРИЗЫ (СПИСОК) ==================== */
+        /* ==================== ПРИЗЫ ==================== */
         .prizes-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
 
         .prize-item {
@@ -220,12 +294,24 @@
             border-radius: 18px;
             padding: 1rem 1.3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.25s;
+            cursor: pointer;
+            user-select: none;
         }
 
         .prize-item:hover {
             transform: translateX(8px);
             border-color: var(--gold);
             box-shadow: 0 10px 24px rgba(255, 150, 60, 0.2);
+        }
+
+        .prize-item.clicked {
+            animation: prizeClick 0.35s ease;
+        }
+
+        @keyframes prizeClick {
+            0%   { transform: scale(1); }
+            40%  { transform: scale(0.97) translateX(4px); }
+            100% { transform: scale(1); }
         }
 
         .prize-place-badge {
@@ -242,29 +328,12 @@
             box-shadow: 0 4px 12px rgba(255, 150, 60, 0.35);
         }
 
-        .prize-emoji {
-            font-size: 2rem;
-            line-height: 1;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-
+        .prize-emoji { font-size: 2rem; line-height: 1; flex-shrink: 0; transition: transform 0.3s ease; }
         .prize-item:hover .prize-emoji { transform: scale(1.2) rotate(-8deg); }
 
-        .prize-name {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #4a3826;
-        }
+        .prize-name { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.05rem; color: #4a3826; }
 
-        .prizes-note {
-            margin-top: 1.2rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-            text-align: center;
-            font-style: italic;
-        }
+        .prizes-note { margin-top: 1.2rem; font-size: 0.85rem; color: var(--muted); text-align: center; font-style: italic; }
 
         /* ==================== СТАТУС ==================== */
         .status-bar {
@@ -296,6 +365,33 @@
             50%      { opacity: 0.45; }
         }
 
+        /* ==================== DEV-ПАНЕЛЬ ==================== */
+        .dev-section {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .dev-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            border: 2px dashed rgba(140, 82, 255, 0.6);
+            background: rgba(140, 82, 255, 0.08);
+            color: #8c52ff;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dev-btn:hover {
+            background: rgba(140, 82, 255, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.25);
+        }
+
         /* ==================== ЗАКРЕПЛЁННАЯ КНОПКА ==================== */
         .sticky-action {
             position: fixed;
@@ -310,12 +406,7 @@
             pointer-events: none;
         }
 
-        .sticky-action > div {
-            width: 100%;
-            max-width: 540px;
-            pointer-events: auto;
-        }
-
+        .sticky-action > div { width: 100%; max-width: 540px; pointer-events: auto; }
         .sticky-action .btn { width: 100%; }
 
         /* ==================== КНОПКИ ==================== */
@@ -373,11 +464,7 @@
             box-shadow: 0 14px 30px rgba(255, 150, 60, 0.28);
         }
 
-        .btn-secondary:disabled {
-            opacity: 0.65;
-            cursor: not-allowed;
-            color: #8a7a6a;
-        }
+        .btn-secondary:disabled { opacity: 0.65; cursor: not-allowed; color: #8a7a6a; }
 
         /* ==================== МОДАЛЬНЫЕ ОКНА ==================== */
         .modal-overlay {
@@ -403,7 +490,7 @@
             padding: 2rem;
             max-width: 560px;
             width: 100%;
-            max-height: 85vh;
+            max-height: 88vh;
             overflow-y: auto;
             box-shadow: 0 30px 70px rgba(160, 90, 20, 0.3);
             transform: scale(0.94);
@@ -413,6 +500,7 @@
         .modal-overlay.active .modal { transform: scale(1); }
 
         .participation-modal { max-width: 520px; }
+        .dev-modal { max-width: 640px; }
 
         .modal-header-row {
             display: flex;
@@ -448,10 +536,7 @@
             line-height: 1;
         }
 
-        .modal-close-icon:hover {
-            background: rgba(255, 179, 71, 0.3);
-            transform: rotate(90deg);
-        }
+        .modal-close-icon:hover { background: rgba(255, 179, 71, 0.3); transform: rotate(90deg); }
 
         .consent-label {
             display: flex;
@@ -498,12 +583,7 @@
 
         .required-mark { color: #e8593a; font-weight: 700; }
 
-        .hint-text {
-            font-size: 0.78rem;
-            color: var(--muted);
-            margin-bottom: 1.4rem;
-            padding-left: 32px;
-        }
+        .hint-text { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.4rem; padding-left: 32px; }
 
         .modal-section { margin-bottom: 1.3rem; }
 
@@ -517,11 +597,7 @@
             margin-bottom: 0.7rem;
         }
 
-        .send-row {
-            display: flex;
-            gap: 0.7rem;
-            flex-wrap: wrap;
-        }
+        .send-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
 
         .send-btn {
             flex: 1;
@@ -557,12 +633,10 @@
         .send-btn.max-btn:hover:not(.disabled) { background: rgba(140, 82, 255, 0.08); border-color: #8c52ff; }
 
         .send-btn.email-btn { color: var(--gold-dark); }
+        .send-btn.yandex-btn { color: #fc3f1d; border-color: rgba(252, 63, 29, 0.4); }
+        .send-btn.yandex-btn:hover:not(.disabled) { background: rgba(252, 63, 29, 0.08); border-color: #fc3f1d; }
 
-        .send-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
+        .send-btn.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
 
         .modal-actions {
             display: flex;
@@ -585,11 +659,7 @@
             transition: background 0.2s, color 0.2s, transform 0.2s;
         }
 
-        .btn-cancel:hover {
-            background: rgba(255, 179, 71, 0.28);
-            color: #4a3826;
-            transform: translateY(-2px);
-        }
+        .btn-cancel:hover { background: rgba(255, 179, 71, 0.28); color: #4a3826; transform: translateY(-2px); }
 
         /* Победители */
         .winner-row {
@@ -614,17 +684,96 @@
 
         .winner-info { flex: 1; }
         .winner-name { font-weight: 600; color: #4a3826; }
-        .winner-work { font-size: 0.85rem; color: var(--muted); word-break: break-all; }
-        .winner-work a { color: var(--gold-dark); text-decoration: none; }
-        .winner-work a:hover { text-decoration: underline; }
+        .winner-work { font-size: 0.85rem; color: var(--muted); word-break: break-word; }
 
         .modal-close { margin-top: 1.5rem; width: 100%; }
 
         .hidden { display: none !important; }
 
+        /* ==================== DEV-ФОРМА ==================== */
+        .dev-hint {
+            font-size: 0.85rem;
+            color: #8a6f4f;
+            background: rgba(140, 82, 255, 0.08);
+            border: 1px solid rgba(140, 82, 255, 0.3);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.3rem;
+            line-height: 1.45;
+        }
+
+        .dev-winner-editor {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .dev-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .dev-row input {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 179, 71, 0.5);
+            background: #fff;
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            min-width: 0;
+        }
+
+        .dev-row input:focus {
+            border-color: var(--gold-dark);
+            box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.2);
+        }
+
+        .dev-row .dev-place {
+            width: 64px;
+            flex-shrink: 0;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        .dev-row .dev-name { flex: 1.2; }
+        .dev-row .dev-work { flex: 1; }
+
+        .dev-actions {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .dev-actions .btn {
+            font-size: 0.9rem;
+            padding: 0.75rem 1.4rem;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .btn-dev-preview {
+            background: rgba(140, 82, 255, 0.12);
+            border: 1px solid rgba(140, 82, 255, 0.5);
+            color: #8c52ff;
+        }
+
+        .btn-dev-preview:hover {
+            background: rgba(140, 82, 255, 0.22);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.25);
+        }
+
         /* ==================== АДАПТИВ ==================== */
         @media (max-width: 600px) {
-            body { padding: 1.2rem 0.9rem 9.5rem; }
+            body { padding: 0 0.9rem 9.5rem; }
+            .navbar { margin: 0 -0.9rem; padding: 0.6rem 0.9rem; }
             .card { padding: 1.5rem; border-radius: 22px; }
             .btn { font-size: 1rem; padding: 0.95rem 1.6rem; }
             .modal { padding: 1.5rem; }
@@ -633,6 +782,9 @@
             .prize-emoji { font-size: 1.7rem; }
             .prize-name { font-size: 0.95rem; }
             .prize-place-badge { font-size: 0.7rem; padding: 0.3rem 0.55rem; }
+            .nav-brand span.brand-text { display: none; }
+            .dev-row { flex-wrap: wrap; }
+            .dev-row .dev-name, .dev-row .dev-work { flex: 1 1 100%; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -645,26 +797,55 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#top" class="nav-brand">🥕 <span class="brand-text">Конкурс эдитов</span></a>
+            <div class="nav-dropdown" id="navDropdown">
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-haspopup="true">
+                    Меню <span class="arrow">▼</span>
+                </button>
+                <ul class="nav-menu" id="navMenu" role="menu">
+                    <li><a href="#examples" role="menuitem">🎬 Примеры работ</a></li>
+                    <li><a href="#rules" role="menuitem">📋 Условия</a></li>
+                    <li><a href="#prizes" role="menuitem">🏆 Призы</a></li>
+                    <li><a href="#status" role="menuitem">✍️ Участие</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="top">
         <!-- Заголовок -->
         <header class="card" style="animation-delay: 0s;">
             <h1>🥕 Конкурс эдитов от Морковчика</h1>
             <p class="subtitle">Покажи свой талант — забери призы!</p>
         </header>
 
-        <!-- Примеры работ (одна строка с прокруткой) -->
-        <section class="card" style="animation-delay: 0.1s;">
+        <!-- Примеры работ -->
+        <section class="card" id="examples" style="animation-delay: 0.1s;">
             <h2><span class="h2-icon">🎬</span> Примеры работ</h2>
             <div class="video-scroller">
-                <div class="video card">
-                    <div class="video-caption">Временно недоступно</div>
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="e1.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-caption">Пример работы #1</div>
+                </div>
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="e2.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-caption">Пример работы #2</div>
                 </div>
             </div>
             <p class="video-note">Примеры работ от автора · прокрутите вправо →</p>
         </section>
 
         <!-- Условия -->
-        <section class="card" style="animation-delay: 0.2s;">
+        <section class="card" id="rules" style="animation-delay: 0.2s;">
             <h2><span class="h2-icon">📋</span> Условия конкурса</h2>
             <ul class="rules-list">
                 <li><span class="rule-icon">🚫</span><span class="rule-text">Без водяных знаков и сторонних логотипов</span></li>
@@ -676,9 +857,9 @@
         </section>
 
         <!-- Призы -->
-        <section class="card" style="animation-delay: 0.3s;">
+        <section class="card" id="prizes" style="animation-delay: 0.3s;">
             <h2><span class="h2-icon">🏆</span> Призы</h2>
-            <ul class="prizes-list">
+            <ul class="prizes-list" id="prizesList">
                 <li class="prize-item">
                     <span class="prize-place-badge">1 место</span>
                     <span class="prize-emoji">🎮</span>
@@ -709,13 +890,18 @@
         </section>
 
         <!-- Статус -->
-        <section class="card" style="animation-delay: 0.4s;">
+        <section class="card" id="status" style="animation-delay: 0.4s;">
             <h2><span class="h2-icon">✍️</span> Участие</h2>
             <div id="statusBar" class="status-bar">
                 <span class="status-dot" id="statusDot"></span>
                 <span id="statusText">Приём работ до 01.11.2026</span>
             </div>
         </section>
+
+        <!-- DEV-секция (появляется после 3 кликов по призу) -->
+        <div class="dev-section hidden" id="devSection">
+            <button class="dev-btn" id="devBtn">⚙️ Девелоп</button>
+        </div>
     </div>
 
     <!-- Закреплённая кнопка снизу -->
@@ -762,9 +948,9 @@
                     <a class="send-btn email-btn disabled" id="emailSendBtn" href="#" target="_blank" rel="noopener">
                         <span class="icon">✉️</span> По почте
                     </a>
-                    <button class="send-btn disabled" id="yandexFormBtn" type="button" title="Ссылка на Яндекс Формы доступна" onclick="window.location.href='https://forms.yandex.ru/u/6adae5e749af47799e2648da'">
+                    <a class="send-btn yandex-btn disabled" id="yandexSendBtn" href="#" target="_blank" rel="noopener">
                         <span class="icon">📋</span> По форме Яндекса
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -783,11 +969,34 @@
         </div>
     </div>
 
+    <!-- Модальное окно Девелоп -->
+    <div class="modal-overlay" id="devModal">
+        <div class="modal dev-modal">
+            <div class="modal-header-row">
+                <div class="modal-title">⚙️ Режим разработчика</div>
+                <button class="modal-close-icon" id="closeDevBtn" aria-label="Закрыть">×</button>
+            </div>
+
+            <div class="dev-hint">
+                Здесь можно посмотреть, как будет выглядеть таблица победителей, и подставить свои значения.
+                <strong>Изменения не сохраняются</strong> — это только предпросмотр.
+            </div>
+
+            <div class="modal-section-title">Победители</div>
+            <div class="dev-winner-editor" id="devWinnerEditor"></div>
+
+            <div class="dev-actions">
+                <button class="btn btn-dev-preview" id="devPreviewBtn">👁 Предпросмотр таблицы</button>
+                <button class="btn btn-dev-preview" id="devFillDemoBtn">🎲 Заполнить демо-данными</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ========================
         // Данные
         // ========================
-        const STORAGE_KEY = 'carrot_contest_data_v4';
+        const STORAGE_KEY = 'carrot_contest_data_v5';
 
         const defaultData = {
             isFinished: false,
@@ -831,8 +1040,8 @@
         const LINKS = {
             vk: 'https://vk.me/join/70YUMlJMw81vJyCynS9tS9SUxTisNgCo0kE=',
             max: 'https://max.ru/join/XWs86_Tru2qJjY5WldjRuvEt53feotArMAPZvycN-vU',
-            email: 'mailto:morkovchik.bunny@gmail.com?subject=' + encodeURIComponent('Участие в конкурсе эдитов от Морковчика')
-            
+            email: 'mailto:morkovchik.bunny@gmail.com?subject=' + encodeURIComponent('Участие в конкурсе эдитов от Морковчика'),
+            yandex: 'https://forms.yandex.ru/u/6adae5e749af47799e2648da'
         };
 
         // ========================
@@ -853,13 +1062,55 @@
         const vkSendBtn = document.getElementById('vkSendBtn');
         const maxSendBtn = document.getElementById('maxSendBtn');
         const emailSendBtn = document.getElementById('emailSendBtn');
-        const yandexFormBtn = document.getElementById('yandexFormBtn');
+        const yandexSendBtn = document.getElementById('yandexSendBtn');
 
         const resultsModal = document.getElementById('resultsModal');
         const closeResultsBtn = document.getElementById('closeResultsBtn');
         const winnersList = document.getElementById('winnersList');
 
+        const navDropdown = document.getElementById('navDropdown');
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        const prizesList = document.getElementById('prizesList');
+        const devSection = document.getElementById('devSection');
+        const devBtn = document.getElementById('devBtn');
+        const devModal = document.getElementById('devModal');
+        const closeDevBtn = document.getElementById('closeDevBtn');
+        const devWinnerEditor = document.getElementById('devWinnerEditor');
+        const devPreviewBtn = document.getElementById('devPreviewBtn');
+        const devFillDemoBtn = document.getElementById('devFillDemoBtn');
+
         let contestData = loadData();
+        let prizeClickCount = 0;
+
+        // ========================
+        // Навигация (dropdown)
+        // ========================
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navDropdown.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navMenu.addEventListener('click', () => {
+            navDropdown.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target)) {
+                navDropdown.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navDropdown.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         // ========================
         // UI
@@ -893,25 +1144,25 @@
 
         function updateSendLinks() {
             const enabled = consentCheckbox.checked;
-            if (enabled) {
-                vkSendBtn.classList.remove('disabled');
-                vkSendBtn.href = LINKS.vk;
-                maxSendBtn.classList.remove('disabled');
-                maxSendBtn.href = LINKS.max;
-                emailSendBtn.classList.remove('disabled');
-                emailSendBtn.href = LINKS.email;
-            } else {
-                vkSendBtn.classList.add('disabled');
-                vkSendBtn.href = '#';
-                maxSendBtn.classList.add('disabled');
-                maxSendBtn.href = '#';
-                emailSendBtn.classList.add('disabled');
-                emailSendBtn.href = '#';
-            }
+            const map = [
+                [vkSendBtn, LINKS.vk],
+                [maxSendBtn, LINKS.max],
+                [emailSendBtn, LINKS.email],
+                [yandexSendBtn, LINKS.yandex]
+            ];
+            map.forEach(([btn, href]) => {
+                if (enabled) {
+                    btn.classList.remove('disabled');
+                    btn.href = href;
+                } else {
+                    btn.classList.add('disabled');
+                    btn.href = '#';
+                }
+            });
         }
 
         // ========================
-        // Обработчики
+        // Модалка участия
         // ========================
         participateBtn.addEventListener('click', () => {
             if (isAfterDeadline()) return;
@@ -929,7 +1180,7 @@
 
         consentCheckbox.addEventListener('change', updateSendLinks);
 
-        [vkSendBtn, maxSendBtn, emailSendBtn].forEach(btn => {
+        [vkSendBtn, maxSendBtn, emailSendBtn, yandexSendBtn].forEach(btn => {
             btn.addEventListener('click', (e) => {
                 if (btn.classList.contains('disabled')) { e.preventDefault(); return; }
                 const channel = btn.id.replace('SendBtn', '');
@@ -942,14 +1193,16 @@
             });
         });
 
-        yandexFormBtn.addEventListener('click', () => {
-            alert('Ссылка на Яндекс Формы пока недоступна. Пожалуйста, используйте VK, MAX или почту.');
-        });
-
-        resultsBtn.addEventListener('click', () => {
-            if (contestData.winners.length === 0) return;
-            winnersList.innerHTML = '';
-            const sorted = [...contestData.winners].sort((a, b) => a.place - b.place);
+        // ========================
+        // Модалка результатов
+        // ========================
+        function renderWinners(winners, container) {
+            container.innerHTML = '';
+            if (!winners || winners.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 1rem 0;">Победители пока не определены.</p>';
+                return;
+            }
+            const sorted = [...winners].sort((a, b) => a.place - b.place);
             sorted.forEach(w => {
                 const row = document.createElement('div');
                 row.className = 'winner-row';
@@ -960,8 +1213,13 @@
                         <div class="winner-work">${escapeHtml(w.work || '')}</div>
                     </div>
                 `;
-                winnersList.appendChild(row);
+                container.appendChild(row);
             });
+        }
+
+        resultsBtn.addEventListener('click', () => {
+            if (contestData.winners.length === 0) return;
+            renderWinners(contestData.winners, winnersList);
             resultsModal.classList.add('active');
         });
 
@@ -978,10 +1236,105 @@
         }
 
         // ========================
+        // DEV-режим: 3 клика по призу
+        // ========================
+        prizesList.addEventListener('click', (e) => {
+            const item = e.target.closest('.prize-item');
+            if (!item) return;
+
+            item.classList.remove('clicked');
+            void item.offsetWidth;
+            item.classList.add('clicked');
+
+            prizeClickCount++;
+            if (prizeClickCount >= 3) {
+                prizeClickCount = 0;
+                devSection.classList.remove('hidden');
+                devSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+
+        // ========================
+        // DEV-модалка
+        // ========================
+        function buildDevEditor() {
+            devWinnerEditor.innerHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                const row = document.createElement('div');
+                row.className = 'dev-row';
+                row.innerHTML = `
+                    <input type="number" class="dev-place" min="1" max="99" value="${i}" aria-label="Место ${i}">
+                    <input type="text" class="dev-name" placeholder="Имя победителя" aria-label="Имя ${i}">
+                    <input type="text" class="dev-work" placeholder="Приз / комментарий" aria-label="Приз ${i}">
+                `;
+                devWinnerEditor.appendChild(row);
+            }
+        }
+
+        function readDevWinners() {
+            const rows = devWinnerEditor.querySelectorAll('.dev-row');
+            const winners = [];
+            rows.forEach(row => {
+                const place = parseInt(row.querySelector('.dev-place').value, 10);
+                const name = row.querySelector('.dev-name').value.trim();
+                const work = row.querySelector('.dev-work').value.trim();
+                if (name) {
+                    winners.push({
+                        place: isNaN(place) ? winners.length + 1 : place,
+                        name: name,
+                        work: work
+                    });
+                }
+            });
+            return winners;
+        }
+
+        devBtn.addEventListener('click', () => {
+            buildDevEditor();
+            devModal.classList.add('active');
+        });
+
+        closeDevBtn.addEventListener('click', () => devModal.classList.remove('active'));
+        devModal.addEventListener('click', (e) => {
+            if (e.target === devModal) devModal.classList.remove('active');
+        });
+
+        // Предпросмотр таблицы (без сохранения)
+        devPreviewBtn.addEventListener('click', () => {
+            const previewWinners = readDevWinners();
+            if (previewWinners.length === 0) {
+                alert('Заполните хотя бы одно имя победителя.');
+                return;
+            }
+            renderWinners(previewWinners, winnersList);
+            devModal.classList.remove('active');
+            resultsModal.classList.add('active');
+        });
+
+        // Заполнить демо-данными
+        devFillDemoBtn.addEventListener('click', () => {
+            const demo = [
+                { place: 1, name: 'Лев', work: '🎮 Джойстик' },
+                { place: 2, name: 'Морковка', work: '🍜 Дошик' },
+                { place: 3, name: 'Зайчик', work: '💎 Бриллиант' },
+                { place: 4, name: 'Лисичка', work: '♥ Пламенное сердце' },
+                { place: 5, name: 'Ёжик', work: '🖤 Сердце с бантом' }
+            ];
+            const rows = devWinnerEditor.querySelectorAll('.dev-row');
+            rows.forEach((row, i) => {
+                const d = demo[i];
+                if (!d) return;
+                row.querySelector('.dev-place').value = d.place;
+                row.querySelector('.dev-name').value = d.name;
+                row.querySelector('.dev-work').value = d.work;
+            });
+        });
+
+        // ========================
         // Запуск
         // ========================
         updateUI();
         setInterval(updateUI, 60000);
     </script>
 </body>
-</html>
+    </html>

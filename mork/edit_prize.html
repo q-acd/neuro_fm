@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥕 Конкурс эдитов от Морковчика</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== БАЗА ==================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #FFB347;
+            --gold-dark: #e8892f;
+            --coral: #FF7E5F;
+            --ink: #2b1d0e;
+            --muted: #7a6653;
+            --card-bg: rgba(255, 255, 255, 0.72);
+            --card-border: rgba(255, 179, 71, 0.4);
+            --shadow: 0 12px 32px rgba(200, 130, 30, 0.14);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            line-height: 1.55;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 15% 10%, #fff2d6 0%, transparent 45%),
+                radial-gradient(circle at 85% 0%, #ffe3c2 0%, transparent 45%),
+                radial-gradient(circle at 50% 100%, #ffd8b8 0%, transparent 50%),
+                linear-gradient(160deg, #fffaf2 0%, #ffeede 50%, #fff5e8 100%);
+            background-attachment: fixed;
+            padding: 2rem 1rem 9rem;
+        }
+
+        /* ==================== КОНТЕЙНЕР ==================== */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ==================== КАРТОЧКИ ==================== */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            padding: 2.2rem;
+            position: relative;
+            animation: fadeUp 0.6s ease both;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 44px rgba(200, 130, 30, 0.2);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Заголовки */
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; letter-spacing: -0.02em; }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.15;
+            color: var(--gold-dark);
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 1.4rem;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 1.4rem;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2 .h2-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover h2 .h2-icon { transform: rotate(-10deg) scale(1.1); }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 179, 71, 0.8), transparent);
+        }
+
+        /* ==================== ВИДЕО В СТРОКУ ==================== */
+        .video-scroller {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.4rem 0.2rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) rgba(255, 179, 71, 0.15);
+        }
+
+        .video-scroller::-webkit-scrollbar {
+            height: 8px;
+        }
+        .video-scroller::-webkit-scrollbar-track {
+            background: rgba(255, 179, 71, 0.12);
+            border-radius: 4px;
+        }
+        .video-scroller::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, var(--gold), var(--coral));
+            border-radius: 4px;
+        }
+
+        .video-card {
+            flex: 0 0 auto;
+            width: 340px;
+            max-width: 82vw;
+            scroll-snap-align: start;
+            background: #fff;
+            border-radius: 20px;
+            padding: 0.7rem;
+            border: 1px solid rgba(255, 179, 71, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(255, 150, 60, 0.22);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 14px;
+            display: block;
+            background: #000;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .video-note {
+            text-align: center;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* ==================== ПРАВИЛА ==================== */
+        .rules-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            background: rgba(255, 179, 71, 0.1);
+            padding: 0.95rem 1.2rem;
+            border-radius: 16px;
+            border-left: 3px solid var(--gold);
+            transition: background 0.25s, transform 0.25s;
+        }
+
+        .rules-list li:hover {
+            background: rgba(255, 179, 71, 0.22);
+            transform: translateX(6px);
+        }
+
+        .rule-icon {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            transition: transform 0.3s ease;
+        }
+
+        .rules-list li:hover .rule-icon { transform: scale(1.2) rotate(6deg); }
+
+        .rule-text { font-size: 0.98rem; color: #4a3826; }
+
+        /* ==================== ПРИЗЫ (СПИСОК) ==================== */
+        .prizes-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+
+        .prize-item {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            background: #fff;
+            border: 1px solid rgba(255, 179, 71, 0.35);
+            border-radius: 18px;
+            padding: 1rem 1.3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.25s;
+        }
+
+        .prize-item:hover {
+            transform: translateX(8px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 24px rgba(255, 150, 60, 0.2);
+        }
+
+        .prize-place-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, var(--gold), var(--coral));
+            padding: 0.35rem 0.7rem;
+            border-radius: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(255, 150, 60, 0.35);
+        }
+
+        .prize-emoji {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .prize-item:hover .prize-emoji { transform: scale(1.2) rotate(-8deg); }
+
+        .prize-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #4a3826;
+        }
+
+        .prizes-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* ==================== СТАТУС ==================== */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+            padding: 0.95rem 1.4rem;
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid rgba(255, 179, 71, 0.4);
+            color: #5a4632;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.finished { background: #ef4444; animation: none; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0.45; }
+        }
+
+        /* ==================== ЗАКРЕПЛЁННАЯ КНОПКА ==================== */
+        .sticky-action {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+            padding: 1.1rem 1rem calc(1.1rem + env(safe-area-inset-bottom));
+            background: linear-gradient(to top, #fff5e8 45%, rgba(255, 245, 232, 0));
+            pointer-events: none;
+        }
+
+        .sticky-action > div {
+            width: 100%;
+            max-width: 540px;
+            pointer-events: auto;
+        }
+
+        .sticky-action .btn { width: 100%; }
+
+        /* ==================== КНОПКИ ==================== */
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1.05rem 2.4rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffb347, #ff7e5f);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(255, 130, 60, 0.4);
+            text-shadow: 0 1px 2px rgba(160, 70, 0, 0.25);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(255, 120, 50, 0.55);
+        }
+
+        .btn-primary:active:not(:disabled) { transform: translateY(-1px); }
+
+        .btn-primary:disabled {
+            background: linear-gradient(135deg, #cbc2b8, #a99c8f);
+            color: #f2ece5;
+            cursor: not-allowed;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--gold-dark);
+            border: 2px solid rgba(255, 179, 71, 0.6);
+            box-shadow: 0 8px 22px rgba(255, 150, 60, 0.15);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255, 179, 71, 0.15);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(255, 150, 60, 0.28);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            color: #8a7a6a;
+        }
+
+        /* ==================== МОДАЛЬНЫЕ ОКНА ==================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(80, 50, 20, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+
+        .modal {
+            background: #fffcf6;
+            border: 1px solid rgba(255, 179, 71, 0.5);
+            border-radius: 26px;
+            padding: 2rem;
+            max-width: 560px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 70px rgba(160, 90, 20, 0.3);
+            transform: scale(0.94);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal { transform: scale(1); }
+
+        .participation-modal { max-width: 520px; }
+
+        .modal-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--gold-dark);
+            line-height: 1.3;
+        }
+
+        .modal-close-icon {
+            background: rgba(255, 179, 71, 0.15);
+            border: 1px solid rgba(255, 179, 71, 0.4);
+            color: var(--gold-dark);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s, transform 0.25s ease;
+            font-family: inherit;
+            line-height: 1;
+        }
+
+        .modal-close-icon:hover {
+            background: rgba(255, 179, 71, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .consent-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+            color: #4a3826;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 0.4rem;
+            line-height: 1.45;
+        }
+
+        .consent-label input[type="checkbox"] {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            border: 2px solid rgba(255, 179, 71, 0.7);
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .consent-label input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #ffb347, #ff7e5f);
+            border-color: var(--gold-dark);
+        }
+
+        .consent-label input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        .required-mark { color: #e8593a; font-weight: 700; }
+
+        .hint-text {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 1.4rem;
+            padding-left: 32px;
+        }
+
+        .modal-section { margin-bottom: 1.3rem; }
+
+        .modal-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #8a6f4f;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.7rem;
+        }
+
+        .send-row {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .send-btn {
+            flex: 1;
+            min-width: 130px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid rgba(255, 179, 71, 0.45);
+            background: #fff;
+            color: #4a3826;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s ease, border-color 0.2s, opacity 0.2s, box-shadow 0.2s;
+        }
+
+        .send-btn:hover:not(.disabled) {
+            background: #fffaf0;
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 150, 60, 0.2);
+        }
+
+        .send-btn.vk-btn { color: #0077ff; border-color: rgba(0, 119, 255, 0.4); }
+        .send-btn.vk-btn:hover:not(.disabled) { background: rgba(0, 119, 255, 0.08); border-color: #0077ff; }
+
+        .send-btn.max-btn { color: #8c52ff; border-color: rgba(140, 82, 255, 0.4); }
+        .send-btn.max-btn:hover:not(.disabled) { background: rgba(140, 82, 255, 0.08); border-color: #8c52ff; }
+
+        .send-btn.email-btn { color: var(--gold-dark); }
+
+        .send-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.6rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 179, 71, 0.25);
+        }
+
+        .btn-cancel {
+            background: rgba(255, 179, 71, 0.12);
+            border: 1px solid rgba(255, 179, 71, 0.35);
+            color: #8a6f4f;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.6rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 179, 71, 0.28);
+            color: #4a3826;
+            transform: translateY(-2px);
+        }
+
+        /* Победители */
+        .winner-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            background: rgba(255, 179, 71, 0.12);
+            border: 1px solid rgba(255, 179, 71, 0.3);
+            margin-bottom: 0.8rem;
+        }
+
+        .winner-place {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            min-width: 2.5rem;
+            text-align: center;
+        }
+
+        .winner-info { flex: 1; }
+        .winner-name { font-weight: 600; color: #4a3826; }
+        .winner-work { font-size: 0.85rem; color: var(--muted); word-break: break-all; }
+        .winner-work a { color: var(--gold-dark); text-decoration: none; }
+        .winner-work a:hover { text-decoration: underline; }
+
+        .modal-close { margin-top: 1.5rem; width: 100%; }
+
+        .hidden { display: none !important; }
+
+        /* ==================== АДАПТИВ ==================== */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.9rem 9.5rem; }
+            .card { padding: 1.5rem; border-radius: 22px; }
+            .btn { font-size: 1rem; padding: 0.95rem 1.6rem; }
+            .modal { padding: 1.5rem; }
+            .send-row { flex-direction: column; }
+            .prize-item { padding: 0.85rem 1rem; gap: 0.8rem; }
+            .prize-emoji { font-size: 1.7rem; }
+            .prize-name { font-size: 0.95rem; }
+            .prize-place-badge { font-size: 0.7rem; padding: 0.3rem 0.55rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="card" style="animation-delay: 0s;">
+            <h1>🥕 Конкурс эдитов от Морковчика</h1>
+            <p class="subtitle">Покажи свой талант — забери призы!</p>
+        </header>
+
+        <!-- Примеры работ (одна строка с прокруткой) -->
+        <section class="card" style="animation-delay: 0.1s;">
+            <h2><span class="h2-icon">🎬</span> Примеры работ</h2>
+            <div class="video-scroller">
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="e1.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-caption">Пример работы #1</div>
+                </div>
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="e2.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-caption">Пример работы #2</div>
+                </div>
+            </div>
+            <p class="video-note">Примеры работ от автора · прокрутите вправо →</p>
+        </section>
+
+        <!-- Условия -->
+        <section class="card" style="animation-delay: 0.2s;">
+            <h2><span class="h2-icon">📋</span> Условия конкурса</h2>
+            <ul class="rules-list">
+                <li><span class="rule-icon">🚫</span><span class="rule-text">Без водяных знаков и сторонних логотипов</span></li>
+                <li><span class="rule-icon">⏱️</span><span class="rule-text">Длительность эдита — до 90 секунд</span></li>
+                <li><span class="rule-icon">👤</span><span class="rule-text">Один человек — один эдит</span></li>
+                <li><span class="rule-icon">🎥</span><span class="rule-text">Работа должна быть создана специально для конкурса</span></li>
+                <li><span class="rule-icon">📎</span><span class="rule-text">Работа отправляется через кнопку «Участвовать!»</span></li>
+            </ul>
+        </section>
+
+        <!-- Призы -->
+        <section class="card" style="animation-delay: 0.3s;">
+            <h2><span class="h2-icon">🏆</span> Призы</h2>
+            <ul class="prizes-list">
+                <li class="prize-item">
+                    <span class="prize-place-badge">1 место</span>
+                    <span class="prize-emoji">🎮</span>
+                    <span class="prize-name">Джойстик</span>
+                </li>
+                <li class="prize-item">
+                    <span class="prize-place-badge">2 место</span>
+                    <span class="prize-emoji">🍜</span>
+                    <span class="prize-name">Дошик</span>
+                </li>
+                <li class="prize-item">
+                    <span class="prize-place-badge">3 место</span>
+                    <span class="prize-emoji">💎</span>
+                    <span class="prize-name">Бриллиант</span>
+                </li>
+                <li class="prize-item">
+                    <span class="prize-place-badge">4 место</span>
+                    <span class="prize-emoji">♥</span>
+                    <span class="prize-name">Пламенное сердце</span>
+                </li>
+                <li class="prize-item">
+                    <span class="prize-place-badge">5 место</span>
+                    <span class="prize-emoji">🖤</span>
+                    <span class="prize-name">Сердце с бантом</span>
+                </li>
+            </ul>
+            <p class="prizes-note">Все призы виртуальные, выдаются через приложение RUMS.</p>
+        </section>
+
+        <!-- Статус -->
+        <section class="card" style="animation-delay: 0.4s;">
+            <h2><span class="h2-icon">✍️</span> Участие</h2>
+            <div id="statusBar" class="status-bar">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Приём работ до 01.11.2026</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Закреплённая кнопка снизу -->
+    <div class="sticky-action">
+        <div id="formPanel">
+            <button id="participateBtn" class="btn btn-primary">🚀 Участвовать!</button>
+        </div>
+        <div id="resultsPanel" class="hidden">
+            <button id="resultsBtn" class="btn btn-secondary" disabled>⏳ Подводим итоги</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно участия -->
+    <div class="modal-overlay" id="participationModal">
+        <div class="modal participation-modal">
+            <div class="modal-header-row">
+                <div class="modal-title">Принять участие в конкурсе эдитов от Морковчика</div>
+                <button class="modal-close-icon" id="closeParticipationBtn" aria-label="Закрыть">×</button>
+            </div>
+
+            <label class="consent-label">
+                <input type="checkbox" id="consentCheckbox">
+                <span>
+                    <span class="required-mark">*</span> Я согласен с условиями размещения своего материала и прочитал правила конкурса.
+                </span>
+            </label>
+            <div class="hint-text"><span class="required-mark">*</span> обязательное поле</div>
+
+            <div class="modal-section">
+                <div class="modal-section-title">Отправить в Обсуждариум Морковчика</div>
+                <div class="send-row">
+                    <a class="send-btn vk-btn disabled" id="vkSendBtn" href="#" target="_blank" rel="noopener">
+                        <span class="icon">💬</span> ВКонтакте
+                    </a>
+                    <a class="send-btn max-btn disabled" id="maxSendBtn" href="#" target="_blank" rel="noopener">
+                        <span class="icon">📨</span> MAX
+                    </a>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title">Отправить другим способом</div>
+                <div class="send-row">
+                    <a class="send-btn email-btn disabled" id="emailSendBtn" href="#" target="_blank" rel="noopener">
+                        <span class="icon">✉️</span> По почте
+                    </a>
+                    <button class="send-btn disabled" id="yandexFormBtn" type="button" disabled title="Ссылка на Яндекс Формы пока недоступна">
+                        <span class="icon">📋</span> По форме Яндекса
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" id="cancelParticipationBtn">Не отправлять</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно результатов -->
+    <div class="modal-overlay" id="resultsModal">
+        <div class="modal">
+            <h2>🏅 Результаты конкурса</h2>
+            <div id="winnersList"></div>
+            <button class="btn btn-primary modal-close" id="closeResultsBtn">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // ========================
+        // Данные
+        // ========================
+        const STORAGE_KEY = 'carrot_contest_data_v4';
+
+        const defaultData = {
+            isFinished: false,
+            participants: [],
+            winners: []
+        };
+
+        function loadData() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return { ...defaultData };
+                const parsed = JSON.parse(raw);
+                return {
+                    isFinished: parsed.isFinished ?? false,
+                    participants: Array.isArray(parsed.participants) ? parsed.participants : [],
+                    winners: Array.isArray(parsed.winners) ? parsed.winners : []
+                };
+            } catch (e) {
+                console.warn('Ошибка загрузки данных:', e);
+                return { ...defaultData };
+            }
+        }
+
+        function saveData(data) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            } catch (e) {
+                console.warn('Ошибка сохранения:', e);
+            }
+        }
+
+        // ========================
+        // Время
+        // ========================
+        const DEADLINE = new Date('2026-11-01T00:00:00');
+        function isAfterDeadline() { return new Date() >= DEADLINE; }
+
+        // ========================
+        // Ссылки
+        // ========================
+        const LINKS = {
+            vk: 'https://vk.me/join/70YUMlJMw81vJyCynS9tS9SUxTisNgCo0kE=',
+            max: 'https://max.ru/join/XWs86_Tru2qJjY5WldjRuvEt53feotArMAPZvycN-vU',
+            email: 'mailto:morkovchik.bunny@gmail.com?subject=' + encodeURIComponent('Участие в конкурсе эдитов от Морковчика')
+        };
+
+        // ========================
+        // DOM
+        // ========================
+        const formPanel = document.getElementById('formPanel');
+        const resultsPanel = document.getElementById('resultsPanel');
+        const participateBtn = document.getElementById('participateBtn');
+        const resultsBtn = document.getElementById('resultsBtn');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+
+        const participationModal = document.getElementById('participationModal');
+        const closeParticipationBtn = document.getElementById('closeParticipationBtn');
+        const cancelParticipationBtn = document.getElementById('cancelParticipationBtn');
+        const consentCheckbox = document.getElementById('consentCheckbox');
+
+        const vkSendBtn = document.getElementById('vkSendBtn');
+        const maxSendBtn = document.getElementById('maxSendBtn');
+        const emailSendBtn = document.getElementById('emailSendBtn');
+        const yandexFormBtn = document.getElementById('yandexFormBtn');
+
+        const resultsModal = document.getElementById('resultsModal');
+        const closeResultsBtn = document.getElementById('closeResultsBtn');
+        const winnersList = document.getElementById('winnersList');
+
+        let contestData = loadData();
+
+        // ========================
+        // UI
+        // ========================
+        function updateUI() {
+            if (!isAfterDeadline()) {
+                formPanel.classList.remove('hidden');
+                resultsPanel.classList.add('hidden');
+
+                participateBtn.disabled = false;
+                participateBtn.textContent = '🚀 Участвовать!';
+
+                statusDot.classList.remove('finished');
+                statusText.textContent = 'Приём работ до 01.11.2026';
+            } else {
+                formPanel.classList.add('hidden');
+                resultsPanel.classList.remove('hidden');
+
+                statusDot.classList.add('finished');
+                statusText.textContent = 'Приём работ завершён. Подведение итогов.';
+
+                if (contestData.winners.length > 0) {
+                    resultsBtn.disabled = false;
+                    resultsBtn.textContent = '🏆 Смотреть результаты';
+                } else {
+                    resultsBtn.disabled = true;
+                    resultsBtn.textContent = '⏳ Подводим итоги';
+                }
+            }
+        }
+
+        function updateSendLinks() {
+            const enabled = consentCheckbox.checked;
+            if (enabled) {
+                vkSendBtn.classList.remove('disabled');
+                vkSendBtn.href = LINKS.vk;
+                maxSendBtn.classList.remove('disabled');
+                maxSendBtn.href = LINKS.max;
+                emailSendBtn.classList.remove('disabled');
+                emailSendBtn.href = LINKS.email;
+            } else {
+                vkSendBtn.classList.add('disabled');
+                vkSendBtn.href = '#';
+                maxSendBtn.classList.add('disabled');
+                maxSendBtn.href = '#';
+                emailSendBtn.classList.add('disabled');
+                emailSendBtn.href = '#';
+            }
+        }
+
+        // ========================
+        // Обработчики
+        // ========================
+        participateBtn.addEventListener('click', () => {
+            if (isAfterDeadline()) return;
+            consentCheckbox.checked = false;
+            updateSendLinks();
+            participationModal.classList.add('active');
+        });
+
+        function closeParticipation() { participationModal.classList.remove('active'); }
+        closeParticipationBtn.addEventListener('click', closeParticipation);
+        cancelParticipationBtn.addEventListener('click', closeParticipation);
+        participationModal.addEventListener('click', (e) => {
+            if (e.target === participationModal) closeParticipation();
+        });
+
+        consentCheckbox.addEventListener('change', updateSendLinks);
+
+        [vkSendBtn, maxSendBtn, emailSendBtn].forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.classList.contains('disabled')) { e.preventDefault(); return; }
+                const channel = btn.id.replace('SendBtn', '');
+                contestData.participants.push({
+                    name: '(через ' + channel.toUpperCase() + ')',
+                    work: 'отправлено ' + new Date().toLocaleString('ru-RU')
+                });
+                saveData(contestData);
+                setTimeout(closeParticipation, 200);
+            });
+        });
+
+        yandexFormBtn.addEventListener('click', () => {
+            alert('Ссылка на Яндекс Формы пока недоступна. Пожалуйста, используйте VK, MAX или почту.');
+        });
+
+        resultsBtn.addEventListener('click', () => {
+            if (contestData.winners.length === 0) return;
+            winnersList.innerHTML = '';
+            const sorted = [...contestData.winners].sort((a, b) => a.place - b.place);
+            sorted.forEach(w => {
+                const row = document.createElement('div');
+                row.className = 'winner-row';
+                row.innerHTML = `
+                    <div class="winner-place">${escapeHtml(String(w.place))}</div>
+                    <div class="winner-info">
+                        <div class="winner-name">${escapeHtml(w.name)}</div>
+                        <div class="winner-work">${escapeHtml(w.work || '')}</div>
+                    </div>
+                `;
+                winnersList.appendChild(row);
+            });
+            resultsModal.classList.add('active');
+        });
+
+        closeResultsBtn.addEventListener('click', () => resultsModal.classList.remove('active'));
+        resultsModal.addEventListener('click', (e) => {
+            if (e.target === resultsModal) resultsModal.classList.remove('active');
+        });
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        }
+
+        // ========================
+        // Запуск
+        // ========================
+        updateUI();
+        setInterval(updateUI, 60000);
+    </script>
+</body>
+</html>

@@ -1329,12 +1329,22 @@
                 row.querySelector('.dev-work').value = d.work;
             });
         });
+        // ========================
+        // ПОБЕДИТЕЛИ КОНКУРСА
+        // ========================
+        contestData.winners = [
+            { place: 1, name: "Ава узи",       work: "🎮 Джойстик" },
+            { place: 2, name: "Зубастик",      work: "🍜 Дошик" },
+            { place: 3, name: "Данила Обогров", work: "💎 Бриллиант" }
+        ];
+        saveData(contestData);
 
         // ========================
         // Запуск
         // ========================
         updateUI();
         setInterval(updateUI, 60000);
+        
     </script>
 </body>
     </html>
